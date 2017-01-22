@@ -19,29 +19,10 @@ module.exports = {
 
   },
 
-// doesn't work (resolve errors)
-  // settings: {
-  //   'import/resolver': {
-  //     webpack: {
-  //       config: 'webpackConfig/webpack.config.dev.js',
-  //     },
-  //   },
-  // },
-
-// works fine (no resolve errors)
   settings: {
     'import/resolver': {
       webpack: {
-        config: {
-          resolve: {
-            modules: [
-              './node_modules',
-              './src/components',
-              './src/containers',
-            ],
-            extensions: ['.js', '.jsx'],
-          },
-        },
+        config: './webpackConfig/webpack.config.dev.js',
       },
     },
   },
