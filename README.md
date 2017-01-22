@@ -4,7 +4,7 @@
 
 ## Features
 
-- **Every** dependency in project devDependencies is listed in the README and has a description with it's **purpose** explanation.
+- **Every** dependency in project devDependencies is listed in the README and has a description with it's **purpose** explanation
 - Not too complex, but at the same time not oversimplified
 - Only cutting-edge technologies 
 - **Advanced live reload** (with **Hot Module Replacement** :heart:) on every file save
@@ -32,14 +32,14 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 
 - Run **`npm run dev -s`** (or **`yarn run dev`**) to start development server
 
-  > *NOTE: The **`-s`** flag is optional. It enables silent mode, which suppresses unnecessary messages from **npm**, and so we get cleaner output.*
+  > *NOTE: The `-s` flag is optional. It enables silent mode, which suppresses unnecessary messages from **npm**, and so we get cleaner output.*
   
     
 - Open **Layout.js** file in **src/components** folder and follow instructions to see how lint and syntax errors are being handled and watch **Hot Module Replacement** in action
 - Open **Layout.test.js** file in **src/components** folder and follow instructions to see how Mocha reports about failed unit tests
 - Stop development server.
 
-  >  *NOTE: In most cases it could be done by hitting **`Ctrl+C`** in the terminal*
+  >  *NOTE: In most cases it could be done by hitting `Ctrl+C` in the terminal*
 
 
 - Run **`npm run build -s`** (or **`yarn run build`**) to bundle our project, then look at terminal output. If build was successful, Browsersync server will automatically start to serve files from **dist** folder, so we can test production version of our app
@@ -60,7 +60,7 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 | [react-hot-loader](https://github.com/gaearon/react-hot-loader) | React Hot Loader (RHL) is a plugin that allows React components to be live reloaded without the loss of state. It works with webpack (as **loader**) and other bundlers that support both **Hot Module Replacement (HMR)** and Babel plugins. |
 |  | **Babel** |
 | [babel-cli](https://github.com/babel/babel/tree/master/packages/babel-cli) | Babel command line. Includes [babel-core](https://github.com/babel/babel/tree/master/packages/babel-core) package that is required in order to other Babel related packages work properly. Also it includes [babel-node](https://www.npmjs.com/package/babel-node) that allow us to use `babel-node` command in our **npm scripts**. To have `babel-node` command in our disposal is necessary if we want to use **ES6 modules** syntax (like `import webpack from 'webpack;`) in scripts that will run in **Node.js** environment (like scripts located in **tools** and **webpackConfig** folders). |
-| [babel-preset-latest](https://github.com/babel/babel/tree/master/packages/babel-preset-latest) | Out of the box (if we didn't provide any **plugin** or **preset**) Babel will just parse our ES6+ code to some structure known as **Abstract Syntax Tree (AST)** and then generate it back. Output code will be the same as input code (ES6+). As we want to transform ES6+ to ES5 we need to include **transformers (plugins)** that will transform ES6+ code parsed by Babel compiler before it will be generated back. **Preset** is a collection of **plugins**. **babel-preset-latest** includes all plugins that provide transformations for standardized ES6+ features (that are in ES2015, ES2016, ES2017... specs). [More about presets and plugins.](https://babeljs.io/docs/plugins/) |
+| [babel-preset-latest](https://github.com/babel/babel/tree/master/packages/babel-preset-latest) | Out of the box (if we didn't provide any **plugin** or **preset**) Babel will just parse our ES6+ code to some structure known as **Abstract Syntax Tree (AST)** and then generate it back. Output code will be the same as input code (ES6+). As we want to transform ES6+ to ES5 we need to include **transformers (plugins)** that will transform ES6+ code parsed by Babel compiler before it will be generated back. **Preset** is a collection of plugins. **babel-preset-latest** includes all plugins that provide transformations for standardized ES6+ features (that are in ES2015, ES2016, ES2017... specs). [More about presets and plugins.](https://babeljs.io/docs/plugins/) |
 | [babel-preset-stage-3](https://github.com/babel/babel/tree/master/packages/babel-preset-stage-3) | JavaScript constantly evolves. New proposed features before coming a part of a release (such as ES6/ES2015) should be approved. **babel-preset-stage-3** includes plugins for proposed features that have a complete spec and initial browser implementations. So we can safely use them in production. [More about proposed features.](https://github.com/tc39/proposals) |
 | [babel-preset-react](https://github.com/babel/babel/tree/master/packages/babel-preset-react) | Preset of Babel plugins which allow to transform syntaxes that are not part of JavaScript itself, but are commonly used in React applications (such as **JSX** or **flow**), to ES5.|
 | [babel-register](https://github.com/babel/babel/tree/master/packages/babel-register) | We need this package to run our Mocha tests that include **ES6 modules** syntax. Mocha runs in Node.js environment and Node.js (at least Node.js v6 and below) doesn't support **ES6 modules**. So we have to use Babel. With **babel-register** Mocha is able to compile ES6+ into ES5 (including **ES6 modules** syntax) on the fly. |
@@ -111,15 +111,17 @@ Some ideas are taken from Michael Pevzner [mihap/webpack-react-hot-bolerplate](h
   - [x] Set up production config, tools and production related npm scripts
 - [x] Set up ESLint
 - [x] Set up test environment
+- [x] Add README (for initial implementation)
+- [ ] Implement assets pipeline (except for styles)
 - [ ] Replace example app with more advanced one that will utilize such technologies as:
   - [ ] React Router v3 or v4
   - [ ] Redux
   - [ ] redux-saga
-- [ ] Write test suites that will demonstrate all test tools, which are used in the project, in action
 - [ ] Choose methodology and tools for styling
-- [ ] Style the app
+- [ ] Add styles assets pipeline
 - [ ] Set up StyleLint
-- [ ] Implement full assets pipeline
+- [ ] Style the app
+- [ ] Write test suites that will demonstrate all test tools, which are used in the project, in action
 - [ ] Tweak webpack production config:
   - [ ] Set up additional optimization plugins
-  - [ ] Add tools for bundle analysing
+  - [ ] Choose and add tools for bundle analysing

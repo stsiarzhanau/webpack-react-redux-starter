@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-redux-starter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Modern starter kit for React projects.",
   "author": "Aliaksandr Stsiarzhanau <sterzhanoff@gmail.com>",
   "license": "MIT",
