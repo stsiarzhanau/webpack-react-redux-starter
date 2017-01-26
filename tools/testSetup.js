@@ -1,3 +1,13 @@
+const ignoredExtensions = [
+  '.css', '.scss',
+  '.gif', '.jpg', '.jpeg', '.png', '.webp', '.svg',
+  '.mp4', '.m4a', '.webm', '.ogv', '.oga', '.ogg', '.mp3', '.wav',
+];
+
+ignoredExtensions.forEach((ext) => {
+  require.extensions[ext] = () => null;
+});
+
 require('babel-register')();
 
 const jsdom = require('jsdom').jsdom;

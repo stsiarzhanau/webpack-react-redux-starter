@@ -1,5 +1,8 @@
 import React from 'react';
 
+import '../styles/style.css';
+import image from '../assets/images/webpack-logo.png';
+
 // Open Google Chrome (we can also use other browsers, but it may require
 // additional steps in order that everything works properly).
 // Go to http://localhost:3000
@@ -42,6 +45,8 @@ function Layout(props) {
     <div>
       <h1>Hello, world!</h1>
       {props.children}
+      <img src={image} alt="webpack logo" />
+      <div className="react-logo" />
     </div>
   );
 }

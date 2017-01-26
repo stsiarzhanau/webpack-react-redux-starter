@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Hussar Bold Web";
+  src: url(../assets/fonts/HussarBoldWeb.woff) format("woff");
+}
+
+h1 {
+  font-family: "Hussar Bold Web", Arial, sans-serif;
+  color: blue;
+  opacity: .5;
+  transition: color .5s, opacity .5s;
+}
+
+h1:hover {
+  color: red;
+  opacity: 1;
+}
+
+.react-logo {
+  width: 200px;
+  height: 200px;
+  background: url(../assets/images/react-logo.png) center center no-repeat;
+}

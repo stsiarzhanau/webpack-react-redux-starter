@@ -1,8 +1,20 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import { DIST, NODE_MODULES, SRC } from './paths';
-import rules from './rules';
+import fontRules from './rules-fonts';
+import javaScriptRules from './rules-javascript';
+import mediaRules from './rules-media';
+import styleRules from './rules-styles';
+
+
+const rules = [
+  ...fontRules,
+  ...javaScriptRules,
+  ...mediaRules,
+  ...styleRules,
+];
 
 
 export default {
@@ -45,6 +57,9 @@ export default {
     }),
     new HtmlWebpackPlugin({
       template: `${SRC}/index.ejs`,
+    }),
+    new ExtractTextPlugin({
+      filename: '[name].[contenthash:8].bundle.css',
     }),
   ],
 

@@ -19,13 +19,31 @@ module.exports = {
 
   },
 
+  // settings: {
+  //   'import/resolver': {
+  //     webpack: {
+  //       config: './webpackConfig/webpack.config.dev.js',
+  //     },
+  //   },
+  // },
+
   settings: {
     'import/resolver': {
       webpack: {
-        config: './webpackConfig/webpack.config.dev.js',
+        config: {
+          resolve: {
+            modules: [
+              './node_modules',
+              './src/components',
+              './src/containers',
+            ],
+            extensions: ['.js', '.jsx'],
+          },
+        },
       },
     },
   },
+
 
   rules: {
     'func-names': [2, 'as-needed'],
