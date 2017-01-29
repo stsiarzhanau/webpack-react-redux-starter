@@ -43,7 +43,7 @@ const propTypes = {
 function Layout(props) {
   return (
     <div>
-      <h1>Hello, world!</h1>
+      <h1 className={styles.heading}>Hello, world!</h1>
       {props.children}
       <img src={image} alt="webpack logo" />
       <div className={styles.reactLogo} />

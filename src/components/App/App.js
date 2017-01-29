@@ -1,6 +1,6 @@
 import React from 'react';
-import Counter from 'Counter';
-import Layout from './Layout/Layout';
+import Counter from '../Counter/Counter';
+import Layout from '../Layout/Layout';
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,

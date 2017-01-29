@@ -3,14 +3,14 @@
   src: url(./HussarBoldWeb.woff) format("woff");
 }
 
-h1 {
+.heading {
   font-family: "Hussar Bold Web", Arial, sans-serif;
   color: blue;
   opacity: .5;
   transition: color .5s, opacity .5s;
 }
 
-h1:hover {
+.heading:hover {
   color: red;
   opacity: 1;
 }
@@ -19,4 +19,5 @@ h1:hover {
   width: 200px;
   height: 200px;
   background: url(./react-logo.png) center center no-repeat;
+  box-shadow: 5px 5px 15px 0px rgba(0,0,0,.5);
 }

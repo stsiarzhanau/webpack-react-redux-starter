@@ -26,7 +26,7 @@ export default [
         {
           loader: 'postcss-loader',
           options: {
-          // pass loader options here
+            // pass loader options here
           },
         },
       ],
