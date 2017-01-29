@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Hussar Bold Web";
-  src: url(../assets/fonts/HussarBoldWeb.woff) format("woff");
+  src: url(./HussarBoldWeb.woff) format("woff");
 }
 
 h1 {
@@ -18,5 +18,5 @@ h1:hover {
 .react-logo {
   width: 200px;
   height: 200px;
-  background: url(../assets/images/react-logo.png) center center no-repeat;
+  background: url(./react-logo.png) center center no-repeat;
 }

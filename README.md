@@ -6,11 +6,12 @@
 
 - **Every** dependency in project devDependencies is listed in the README and has a description with it's **purpose** explanation
 - Not too complex, but at the same time not oversimplified
-- Only cutting-edge technologies 
-- **Advanced live reload** (with **Hot Module Replacement** :heart:) on every file save
-- **Linting** JavaScript code with **[ESLint](http://eslint.org/)** on every file save
-- **Unit testing** with **[Mocha](https://mochajs.org/)** on every file save
-- **Syncronized browser testing support** with **[Browsersync](https://browsersync.io/)**
+- Only cutting-edge technologies
+- Great developer experience: 
+  - **Advanced live reload** (with **Hot Module Replacement** :heart:) on every file save
+  - **Linting** JavaScript code with **[ESLint](http://eslint.org/)** on every file save
+  - **Unit testing** with **[Mocha](https://mochajs.org/)** on every file save
+  - **Syncronized browser testing support** with **[Browsersync](https://browsersync.io/)**
 
 > *NOTE: Not intended for isomorphic apps!*
 
@@ -35,9 +36,9 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
   > *NOTE: The `-s` flag is optional. It enables silent mode, which suppresses unnecessary messages from npm, and so we get cleaner output.*
   
     
-- Open **Layout.js** file in **src/components** folder and follow instructions to see how lint and syntax errors are being handled and watch **Hot Module Replacement** in action
-- Open **Layout.test.js** file in **src/components** folder and follow instructions to see how Mocha reports about failed unit tests
-- Open **style.css** file in **src/styles** folder and play with CSS to see how style changes are hot reloaded on file save without full page refresh
+- Open **Layout.js** file in **src/components/Layout** folder and follow instructions to see how lint and syntax errors are being handled and watch **Hot Module Replacement** in action
+- Open **Layout.test.js** file in **src/components/Layout** folder and follow instructions to see how Mocha reports about failed unit tests
+- Open **Layout.css** file in **src/components/Layout** folder and play with CSS to see how style changes are hot reloaded on file save without full page refresh
 - Stop development server.
 
   >  *NOTE: In most cases it could be done by hitting `Ctrl+C` in the terminal*
@@ -95,7 +96,7 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 | [file-loader](https://github.com/webpack-contrib/file-loader) | This loader helps us to handle assets (like images, custom fonts, video, etc.). When in our code we refer to some asset (for example *logo.png*), **file-loader** copies that *logo.png* file into output directory (**dist**) and creates an entry with path to this file inside of resulting bundle (**bundle.js**). So, our production code in resulting bundle, which needs the *logo.png*, knows where to find that image. **file-loader** can be configured through options. To read more about possible options see package README. |
 | [url-loader](https://github.com/webpack-contrib/url-loader) | **url-loader** is a wrapper around the **file-loader**. If file size of some asset is smaller than a specified limit (in bytes) this loader can just inline it into resulting bundle as **base64 encoded Data URI**. Otherwise file will be automatically processed by the **file-loader**. Such an approach allows us to save some additional HTTP requests, but also increases resulting bundle size. So we should specify the right limit to observe balance. We can pass to **url-loader** all the options of **file-loader** and, of course, **limit** option. |
 | [style-loader](https://github.com/webpack-contrib/style-loader) | Basically this loader does the following. It takes project's CSS code and injects it into the resulting bundle together with some JavaScript code that wraps that CSS into `<style>` tag and then dynamically (on runtime) injects that `<style>` tag into markup (**index.html**). Such approach is good for development, as it allows styles to be hot reloaded without full page refresh (thanks to **Hot Module Replacement**). For production build it's better to use **extract-text-webpack-plugin** (which generates separate CSS bundle(s)) instead of the **style-loader**. Also it's worth mentioning that **style-loader** should be used together with other loaders (usually **css-loader**) that will actually transform CSS, so it could be injected into resulting bundle. **style-loader** is just responsible for injecting itself. **style-loader** have some options. To read more about possible options see package README. |
-| [css-loader](https://github.com/webpack-contrib/css-loader) | It's possible just to convert CSS into string (with [raw-loader](https://github.com/webpack-contrib/raw-loader)) and then pass it to **style-loader**. The latter will inject that CSS string into JS bundle and our CSS will work as expected. But if our CSS code contains some "calls" to assets inside CSS files (like `@import 'style.css'` or `background: url(path/to/asset.js)`) those assets will be unaccessible. It happens cause they were not actually required by webpack and so neither copied into otput directory nor inlined into resulting bundle. **css-loader** solves that problem. It finds all those `@import`'s and `url()`'s in CSS code and **require** assets they point to. Then appropriate loaders (like **url-loader** or **file-loader**) do their job (see above) and we have our assets inlined into JS bundle or copied into **dist** folder. We can also extend **css-loader** functionality (through it's options). To read more about possible options see package README. |
+| [css-loader](https://github.com/webpack-contrib/css-loader) | It's possible just to convert CSS into string (with [raw-loader](https://github.com/webpack-contrib/raw-loader)) and then pass it to **style-loader**. The latter will inject that CSS string into JS bundle and our CSS will work as expected. But if our CSS code contains some "calls" to assets inside CSS files (like `@import 'style.css'` or `background: url(path/to/asset.js)`) those assets will be unaccessible. It happens cause they were not actually required by webpack and so neither copied into otput directory nor inlined into resulting bundle. **css-loader** solves that problem. It finds all those `@import`'s and `url()`'s in CSS code and **require** assets they point to. Then appropriate loaders (like **url-loader** or **file-loader**) do their job (see above) and we have our assets inlined into JS bundle or copied into **dist** folder. We can also extend **css-loader** functionality (through it's options). For example, we can enable [CSS Modules](https://github.com/css-modules/css-modules) support or minification. To read more about possible options see package README. If you are not familiar with **CSS Modules** take a look at [this](http://andrewhfarmer.com/what-are-css-modules/) article and also at [this](http://andrewhfarmer.com/css-modules-by-example/) one. |
 | [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) | This plugin is useful for production builds. Instead of inlining CSS code into resulting JavaScript bundle (like **style-loader** does) it creates separated CSS bundle file(s). If our total stylesheet volume is big, it will be faster because the CSS bundle is loaded in parallel to the JS bundle. |
 
 
@@ -137,3 +138,4 @@ Juho Vepsäläinen ["SurviveJS - Webpack"](http://survivejs.com/webpack/introduc
 - [ ] Tweak webpack production config:
   - [ ] Set up additional optimization plugins
   - [ ] Choose and add tools for bundle analysing
+

@@ -17,7 +17,16 @@ export default [
         {
           loader: 'css-loader',
           options: {
-            // pass loader options here
+            modules: true,
+            camelCase: true,
+            localIdentName: '[name]__[local]--[hash:8]',
+            importLoaders: 1,
+          },
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+          // pass loader options here
           },
         },
       ],

@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-redux-starter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Modern starter kit for React projects.",
   "author": "Aliaksandr Stsiarzhanau <sterzhanoff@gmail.com>",
   "license": "MIT",
@@ -55,6 +55,7 @@
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "npm-run-all": "4.0.1",
+    "postcss-loader": "^1.2.2",
     "react-addons-test-utils": "^15.4.2",
     "react-hot-loader": "next",
     "rimraf": "^2.5.4",
@@ -88,7 +89,10 @@
     "test",
     "mocha",
     "enzyme",
-    "jsdom"
+    "jsdom",
+    "css",
+    "modules",
+    "css-modules"
   ],
   "repository": {
     "type": "git",
