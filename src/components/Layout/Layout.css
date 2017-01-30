@@ -21,3 +21,8 @@
   background: url(./react-logo.png) center center no-repeat;
   box-shadow: 5px 5px 15px 0px rgba(0,0,0,.5);
 }
+
+.list-item {
+  lost-column: 1/4;
+  background-color: red;
+}

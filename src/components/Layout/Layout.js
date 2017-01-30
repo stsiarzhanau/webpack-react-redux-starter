@@ -47,6 +47,12 @@ function Layout(props) {
       {props.children}
       <img src={image} alt="webpack logo" />
       <div className={styles.reactLogo} />
+      <ul className={styles.list}>
+        <li className={styles.listItem}>One</li>
+        <li className={styles.listItem}>Two</li>
+        <li className={styles.listItem}>Three</li>
+        <li className={styles.listItem}>Three</li>
+      </ul>
     </div>
   );
 }
