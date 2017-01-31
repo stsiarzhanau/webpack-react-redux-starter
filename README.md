@@ -10,6 +10,7 @@
 - Great developer experience: 
   - **Advanced live reload** (with **Hot Module Replacement** :heart:) on every file save
   - **Linting** JavaScript code with **[ESLint](http://eslint.org/)** on every file save
+  - **Linting** stylesheets with **[stylelint](https://stylelint.io/)** on every file save
   - **Unit testing** with **[Mocha](https://mochajs.org/)** on every file save
   - **Syncronized browser testing support** with **[Browsersync](https://browsersync.io/)**
 
@@ -94,9 +95,10 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 | [style-loader](https://github.com/webpack-contrib/style-loader) | Basically this loader does the following. It takes project's CSS code and injects it into the resulting bundle together with some JavaScript code that wraps that CSS into `<style>` tag and then dynamically (on runtime) injects that `<style>` tag into markup (**index.html**). Such approach is good for development, as it allows styles to be hot reloaded without full page refresh (thanks to **Hot Module Replacement**). For production build it's better to use **extract-text-webpack-plugin** (which generates separate CSS bundle(s)) instead of the **style-loader**. Also it's worth mentioning that **style-loader** should be used together with other loaders (usually **css-loader**) that will actually transform CSS, so it could be injected into resulting bundle. **style-loader** is just responsible for injecting itself. **style-loader** have some options. To read more about possible options see package README. |
 | [css-loader](https://github.com/webpack-contrib/css-loader) | It's possible just to convert CSS into string (with [raw-loader](https://github.com/webpack-contrib/raw-loader)) and then pass it to **style-loader**. The latter will inject that CSS string into JS bundle and our CSS will work as expected. But if our CSS code contains some "calls" to assets inside CSS files (like `@import 'style.css'` or `background: url(path/to/asset.js)`) those assets will be unaccessible. It happens cause they were not actually required by webpack and so neither copied into otput directory nor inlined into resulting bundle. **css-loader** solves that problem. It finds all those `@import`'s and `url()`'s in CSS code and **require** assets they point to. Then appropriate loaders (like **url-loader** or **file-loader**) do their job (see above) and we have our assets inlined into JS bundle or copied into **dist** folder. We can also extend **css-loader** functionality (through it's options). For example, we can enable [CSS Modules](https://github.com/css-modules/css-modules) support or minification. To read more about possible options see package README. If you are not familiar with **CSS Modules** take a look at [this](http://andrewhfarmer.com/what-are-css-modules/) article and also at [this](http://andrewhfarmer.com/css-modules-by-example/) one. |
 | [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) | This plugin is useful for production builds. Instead of inlining CSS code into resulting JavaScript bundle (like **style-loader** does) it creates separated CSS bundle file(s). If our total stylesheet volume is big, it will be faster because the CSS bundle is loaded in parallel to the JS bundle. |
-| [postcss-loader]() | This loader allows us to process our stylesheets with [PostCSS](http://postcss.org/) plugins. It reads plugins configuration from **postcss.config.js** file. |
+| [postcss-loader](https://github.com/postcss/postcss-loader) | This loader allows us to process our stylesheets with [PostCSS](http://postcss.org/) plugins. It reads plugins configuration from **postcss.config.js** file. |
+| [imagemin-webpack-plugin](https://github.com/Klathmon/imagemin-webpack-plugin) | This plugin is useful for production builds. It allows us to minify (compress) our image assets. Under the hood it uses a bunch of [imagemin](https://github.com/imagemin/imagemin) plugins. To read more about included plugins and their options see package README. |
 |  | **PostCSS Plugins** |
-| [autoprefixer](https://github.com/postcss/autoprefixer) | The most popular **PostCSS** plugin. It automatically adds **vendor prefixes** to CSS rules using data from **Can I Use** website. We can list browsers to support in **browserslist** configuration file. |
+| [autoprefixer](https://github.com/postcss/autoprefixer) | The most popular **PostCSS** plugin. It automatically adds **vendor prefixes** to CSS rules using data from **Can I Use** website. NOTE: We can list browsers to support in **browserslist** configuration file. |
 | [lost](https://github.com/peterramsing/lost) | This PostCSS plugin provides us with a powerful and easy to use grid system. [More info.](http://lostgrid.org/docs.html#getting-started) |
 |  | **stylelint** |
 | [stylelint-webpack-plugin](https://github.com/JaKXz/stylelint-webpack-plugin) | This webpack plugin allows us to lint our stylesheets when we make our production build and also on every file save during development. If our stylesheets code have any stylistic issues, linter messages will be shown in the console window. This package includes [stylelint](https://github.com/stylelint/stylelint) itself. |
@@ -117,7 +119,9 @@ This project is inspired by Cory House [coryhouse/react-slingshot](https://githu
 
 Sample app initial implementation is taken from Dan Abramov [gaearon/react-hot-boilerplate](https://github.com/gaearon/react-hot-boilerplate/tree/next)
 
-Some ideas are taken from Michael Pevzner [mihap/webpack-react-hot-bolerplate](https://github.com/mihap/webpack-react-hot-bolerplate)
+Some ideas are taken from following starter kits:
+- Michael Pevzner [mihap/webpack-react-hot-bolerplate](https://github.com/mihap/webpack-react-hot-bolerplate)
+- Dmitriy Haponov [sunstorymvp/playground](https://github.com/sunstorymvp/playground)
 
 Juho Vepsäläinen ["SurviveJS - Webpack"](http://survivejs.com/webpack/introduction/) book was a huge help.
 
@@ -136,7 +140,7 @@ Juho Vepsäläinen ["SurviveJS - Webpack"](http://survivejs.com/webpack/introduc
 - [x] Add README (for initial implementation)
 - [x] Implement basic assets pipeline
 - [x] Choose methodology for styling
-- [x] Set up StyleLint
+- [x] Set up stylelint
 - [ ] Extend assets pipeline (add PostCSS plugins, separate rules for SVG, etc.)
 - [ ] Replace example app with more advanced one that will utilize such technologies as:
   - [ ] React Router v3 or v4
