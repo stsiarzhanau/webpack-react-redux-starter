@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import StyleLintPlugin from'stylelint-webpack-plugin';
 
 import { DIST, NODE_MODULES, SRC } from './paths';
 import fontRules from './rules-fonts';
@@ -62,6 +63,11 @@ export default {
     }),
     new ExtractTextPlugin({
       disable: true,
+    }),
+    new StyleLintPlugin({
+      configFile: '.stylelintrc.js',
+      files: ['**/*.css'],
+      // syntax: 'scss',
     }),
   ],
 

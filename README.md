@@ -97,7 +97,10 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 | [postcss-loader]() | This loader allows us to process our stylesheets with [PostCSS](http://postcss.org/) plugins. It reads plugins configuration from **postcss.config.js** file. |
 |  | **PostCSS Plugins** |
 | [autoprefixer](https://github.com/postcss/autoprefixer) | The most popular **PostCSS** plugin. It automatically adds **vendor prefixes** to CSS rules using data from **Can I Use** website. We can list browsers to support in **browserslist** configuration file. |
-| [lost](https://github.com/peterramsing/lost) | This PostCSS plugin provides us with a powerful and easy to use based grid system. |
+| [lost](https://github.com/peterramsing/lost) | This PostCSS plugin provides us with a powerful and easy to use grid system. [More info.](http://lostgrid.org/docs.html#getting-started) |
+|  | **stylelint** |
+| [stylelint-webpack-plugin](https://github.com/JaKXz/stylelint-webpack-plugin) | This webpack plugin allows us to lint our stylesheets when we make our production build and also on every file save during development. If our stylesheets code have any stylistic issues, linter messages will be shown in the console window. This package includes [stylelint](https://github.com/stylelint/stylelint) itself. |
+| [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) | The standard shareable config for **stylelint**. It's recommended by **stylelint** team as foundation for your own config. |
 |  | **Misc** |
 | [cross-env](https://github.com/kentcdodds/cross-env) | In some of our **npm scripts** we need to set environment variables. For example, NODE_ENV, which we use to tell webpack and friends in which environment (development or production) given command should run. But in different OS we have to set it in a slightly different way. For UNIX based OS we shoud use syntax like `NODE_ENV=production`. For Windows - `set NODE_ENV=production`. **cross-env** package allows us to set environment variables in Unix style and have it work on Windows too. |
 | [npm-run-all](https://github.com/mysticatea/npm-run-all) | This package allows us to run multiple **npm scripts** in parallel or sequential (and do it in a cross-platform way). For example, we can write `run-p serve:src test:watch` instead of `npm run serve:src & test:watch`. So, with **npm-run-all** our **npm scripts** not only look more concise, but work fine on Windows (which treats **`&`** operator in a different way than UNIX based OS). |
@@ -132,13 +135,13 @@ Juho Vepsäläinen ["SurviveJS - Webpack"](http://survivejs.com/webpack/introduc
 - [x] Set up test environment
 - [x] Add README (for initial implementation)
 - [x] Implement basic assets pipeline
-- [ ] Extend assets pipeline (add PostCSS, separate rules for SVG, etc.)
+- [x] Choose methodology for styling
+- [x] Set up StyleLint
+- [ ] Extend assets pipeline (add PostCSS plugins, separate rules for SVG, etc.)
 - [ ] Replace example app with more advanced one that will utilize such technologies as:
   - [ ] React Router v3 or v4
   - [ ] Redux
   - [ ] redux-saga
-- [ ] Choose methodology for styling
-- [ ] Set up StyleLint
 - [ ] Style the app
 - [ ] Write test suites that will demonstrate all test tools, which are used in the project, in action
 - [ ] Tweak webpack production config:

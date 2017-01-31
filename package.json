@@ -19,6 +19,7 @@
     "browsers": "babel-node ./tools/printBrowsersList"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
@@ -66,6 +67,8 @@
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
+    "stylelint-config-standard": "^15.0.1",
+    "stylelint-webpack-plugin": "^0.5.1",
     "url-loader": "^0.5.7",
     "webpack": "2.2.0",
     "webpack-dev-middleware": "^1.9.0",
@@ -97,7 +100,8 @@
     "css",
     "modules",
     "css-modules",
-    "postcss"
+    "postcss",
+    "stylelint"
   ],
   "repository": {
     "type": "git",

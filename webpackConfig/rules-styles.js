@@ -19,7 +19,7 @@ export default [
           options: {
             modules: true,
             camelCase: true,
-            localIdentName: '[name]__[local]--[hash:8]',
+            localIdentName: '[name]__[local]--[hash:6]',
             importLoaders: 1,
           },
         },

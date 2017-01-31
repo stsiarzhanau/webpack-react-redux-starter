@@ -5,9 +5,8 @@
 
 .heading {
   font-family: "Hussar Bold Web", Arial, sans-serif;
-  color: blue;
-  opacity: .5;
-  transition: color .5s, opacity .5s;
+  color: rgba(0, 0, 255, 0.5);
+  transition: color 0.5s, opacity 0.5s;
 }
 
 .heading:hover {
@@ -19,10 +18,29 @@
   width: 200px;
   height: 200px;
   background: url(./react-logo.png) center center no-repeat;
-  box-shadow: 5px 5px 15px 0px rgba(0,0,0,.5);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  margin-bottom: 50px;
 }
 
-.list-item {
-  lost-column: 1/4;
-  background-color: red;
+.row {
+  font-family: "Hussar Bold Web", Arial, sans-serif;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  lost-utility: clearfix;
+}
+
+.column {
+  height: 50px;
+  color: rgb(0, 0, 255);
+  background-color: rgba(0, 0, 255, 0.5);
+  lost-align: center;
+}
+
+.quarter {
+  lost-column: 1/4 0;
+}
+
+.half {
+  lost-column: 1/2 0;
 }
