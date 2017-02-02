@@ -3,14 +3,20 @@
   src: url(./HussarBoldWeb.woff) format("woff");
 }
 
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .heading {
   font-family: "Hussar Bold Web", Arial, sans-serif;
+  text-align: center;
   color: rgba(0, 0, 255, 0.5);
   transition: color 0.5s, opacity 0.5s;
 }
 
 .heading:hover {
-  color: red;
+  color: #f00;
   opacity: 1;
 }
 
@@ -31,16 +37,16 @@
 }
 
 .column {
-  height: 50px;
-  color: rgb(0, 0, 255);
+  height: 100px;
+  color: #ededed;
   background-color: rgba(0, 0, 255, 0.5);
   lost-align: center;
 }
 
 .quarter {
-  lost-column: 1/4 0;
+  lost-column: 1/4 0 2px;
 }
 
 .half {
-  lost-column: 1/2 0;
+  lost-column: 1/2 0 2px;
 }

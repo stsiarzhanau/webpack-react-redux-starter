@@ -1,8 +1,7 @@
 import React from 'react';
-import cx from 'classnames';
 
-import st from './Layout.css';
 import webpackLogo from './webpack-logo.png';
+import './Layout.css';
 
 // Open Google Chrome (we can also use other browsers, but it may require
 // additional steps in order that everything works properly).
@@ -44,14 +43,14 @@ const propTypes = {
 function Layout(props) {
   return (
     <div>
-      <h1 className={st.heading}>Hello, world!</h1>
+      <h1 styleName="heading">Hello, world!</h1>
       {props.children}
       <img src={webpackLogo} alt="webpack logo" />
-      <div className={st.reactLogo} />
-      <ul className={st.row}>
-        <li className={cx(st.column, st.quarter)}><div>One</div></li>
-        <li className={cx(st.column, st.half)}><div>Two</div></li>
-        <li className={cx(st.column, st.quarter)}><div>Three</div></li>
+      <div styleName="react-logo" />
+      <ul styleName="row">
+        <li styleName="column quarter"><div>Quarter</div></li>
+        <li styleName="column half"><div>Half</div></li>
+        <li styleName="column quarter"><div>Quarter</div></li>
       </ul>
     </div>
   );

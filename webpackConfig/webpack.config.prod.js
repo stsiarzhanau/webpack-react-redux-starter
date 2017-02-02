@@ -75,7 +75,6 @@ export default {
       jpegtran: {
         progressive: true,
       },
-      svgo: null,
     }),
   ],
 

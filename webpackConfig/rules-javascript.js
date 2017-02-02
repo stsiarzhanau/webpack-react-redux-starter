@@ -10,8 +10,18 @@ export default [
         options: {
           presets: [
             ['latest', { es2015: { modules: false } }],
-            'stage-3',
-            'react',
+              'stage-3',
+              'react',
+            ],
+
+          plugins: [
+            [
+              'react-css-modules',
+              {
+                context: SRC,
+                // generateScopedName: '[path]___[name]__[local]___[hash:base64:5]',
+              },
+            ],
           ],
 
           env: {

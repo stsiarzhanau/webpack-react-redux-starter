@@ -6,7 +6,7 @@ export default [
   {
     test: /\.css$/,
     include: SRC,
-    loader: ExtractTextPlugin.extract({
+    use: ExtractTextPlugin.extract({
       fallbackLoader: {
         loader: 'style-loader',
         options: {
@@ -15,14 +15,14 @@ export default [
       },
       loader: [
         {
-          loader: 'css-loader',
+          loader:'css-loader',
           options: {
             modules: true,
-            camelCase: true,
-            localIdentName: '[name]__[local]--[hash:6]',
+            localIdentName: '[path]___[name]__[local]___[hash:base64:5]',
             importLoaders: 1,
           },
         },
+
         {
           loader: 'postcss-loader',
           options: {

@@ -35,7 +35,6 @@ export default [
     ],
   },
 
-
   {
     test: /\.(mp4|m4a|webm|ogv|oga|ogg|mp3|wav)$/,
     include: SRC,
