@@ -1,6 +1,12 @@
 import React from 'react';
-import Counter from '../Counter/Counter';
+
 import Layout from '../Layout/Layout';
+import Logos from '../Logos/Logos';
+import Counter from '../Counter/Counter';
+import IconSet from '../IconSet/IconSet';
+import Prefooter from '../Prefooter/Prefooter';
+import Footer from '../Footer/Footer';
+
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,
@@ -12,7 +18,11 @@ import Layout from '../Layout/Layout';
 function App() {
   return (
     <Layout>
+      <Logos />
       <Counter />
+      <IconSet />
+      <Prefooter />
+      <Footer />
     </Layout>
   );
 }

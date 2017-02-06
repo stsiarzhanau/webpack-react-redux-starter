@@ -8,6 +8,7 @@ export default [
       {
         loader: 'babel-loader',
         options: {
+          babelrc: false,
           presets: [
             ['latest', { es2015: { modules: false } }],
               'stage-3',
@@ -35,8 +36,6 @@ export default [
               // TODO
             },
           },
-
-          babelrc: false,
         },
       },
     ],

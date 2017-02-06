@@ -1,6 +1,5 @@
 import React from 'react';
 
-import webpackLogo from './webpack-logo.png';
 import './Layout.css';
 
 // Open Google Chrome (we can also use other browsers, but it may require
@@ -45,13 +44,6 @@ function Layout(props) {
     <div>
       <h1 styleName="heading">Hello, world!</h1>
       {props.children}
-      <img src={webpackLogo} alt="webpack logo" />
-      <div styleName="react-logo" />
-      <ul styleName="row">
-        <li styleName="column quarter"><div>Quarter</div></li>
-        <li styleName="column half"><div>Half</div></li>
-        <li styleName="column quarter"><div>Quarter</div></li>
-      </ul>
     </div>
   );
 }
