@@ -41,7 +41,7 @@ const propTypes = {
 
 function Layout(props) {
   return (
-    <div>
+    <div styleName="container">
       <h1 styleName="heading">Hello, world!</h1>
       {props.children}
     </div>

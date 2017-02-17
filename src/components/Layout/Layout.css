@@ -4,15 +4,23 @@
 }
 
 body {
+  margin: 0;
+  padding: 0 2%;
+}
+
+.container {
   min-width: 320px;
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
+  background-color: #efefef;
 }
 
 .heading {
   font-family: "Hussar Bold Web", Arial, sans-serif;
   text-align: center;
   color: rgba(0, 0, 255, 0.5);
+  margin-top: 0;
+  padding-top: 30px;
   transition: color 0.5s, opacity 0.5s;
 }
 
