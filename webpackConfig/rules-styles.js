@@ -7,13 +7,13 @@ export default [
     test: /\.css$/,
     include: SRC,
     use: ExtractTextPlugin.extract({
-      fallbackLoader: {
+      fallback: {
         loader: 'style-loader',
         options: {
           // pass loader options here
         },
       },
-      loader: [
+      use: [
         {
           loader:'css-loader',
           options: {
