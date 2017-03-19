@@ -11,7 +11,7 @@ import sinonChai from 'sinon-chai';
 /* eslint-enable */
 /* eslint-disable no-unused-expressions */
 
-import Layout from './Layout';
+import App from './App';
 
 chai.use(chaiEnzyme());
 chai.use(sinonChai);
@@ -22,8 +22,8 @@ chai.use(sinonChai);
 // Then change assertion back to initial state and save file again.
 
 
-describe('Layout', () => {
+describe('App', () => {
   it('should exist ', () => {
-    expect(Layout).to.exist;
+    expect(App).to.exist;
   });
 });
