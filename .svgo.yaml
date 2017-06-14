@@ -16,48 +16,61 @@ plugins:
   #     param1: 1
   #     param2: 2
 
+  - cleanupAttrs
   - removeDoctype
   - removeXMLProcInst
   - removeComments
   - removeMetadata
+  # disabled by default
+  - removeTitle
+  # only non-meaningful by default
+  - removeDesc
+  - removeUselessDefs
+  # disabled by default
   - removeXMLNS
   - removeEditorsNSData
-  - cleanupAttrs
+  - removeEmptyAttrs
+  - removeHiddenElems
+  - removeEmptyText
+  - removeEmptyContainers
+  # disabled by default
+  - removeViewBox
+  - cleanupEnableBackground
   - minifyStyles
   - convertStyleToAttrs
-  - cleanupIDs
-  - removeRasterImages
-  - removeUselessDefs
-  - cleanupNumericValues
-  - cleanupListOfValues
   - convertColors
+  - convertPathData
+  - convertTransform
   - removeUnknownsAndDefaults
   - removeNonInheritableGroupAttrs
   - removeUselessStrokeAndFill
-  - removeViewBox
-  - cleanupEnableBackground
-  - removeHiddenElems
-  - removeEmptyText
-  - convertShapeToPath
+  - removeUnusedNS
+  - cleanupIDs
+  - cleanupNumericValues
+  - cleanupListOfValues
   - moveElemsAttrsToGroup
   - moveGroupAttrsToElems
   - collapseGroups
-  - convertPathData
-  - convertTransform
-  - removeEmptyAttrs
-  - removeEmptyContainers
+  # disabled by default
+  - removeRasterImages
   - mergePaths
-  - removeUnusedNS
-  - transformsWithOnePath
+  - convertShapeToPath
+  # disabled by default
   - sortAttrs
-  - removeTitle
-  - removeDesc
+  # disabled by default
+  - transformsWithOnePath
+  # disabled by default
   - removeDimensions
+  # disabled by default
   - removeAttrs
+  # disabled by default
   - removeElementsByAttr
+  # disabled by default
   - addClassesToSVGElement
-  - removeStyleElement
+  # disabled by default
   - addAttributesToSVGElement
+  # disabled by default
+  - removeStyleElement
 
 # configure the indent (default 4 spaces) used by `--pretty` here:
 #

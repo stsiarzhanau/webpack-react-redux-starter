@@ -38,17 +38,15 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
   > *NOTE: The `-s` flag is optional. It enables silent mode, which suppresses unnecessary messages from npm, and so we get cleaner output.*
   
     
-- Open **Layout.js** file in **src/components/Layout** folder and follow instructions to see how lint and syntax errors are being handled and watch **Hot Module Replacement** in action
-- Open **Layout.test.js** file in **src/components/Layout** folder and follow instructions to see how Mocha reports about failed unit tests
-- Open **Layout.css** file in **src/components/Layout** folder and play with CSS to see how style changes are hot reloaded on file save without full page refresh
+- Open **app.js** file in **src** folder and follow instructions to see how lint and syntax errors are being handled and watch **Hot Module Replacement** in action
+- Open **app.test.js** file in **src** folder and follow instructions to see how Mocha reports about failed unit tests
+- Open **styles.css** file in **src** folder and play with CSS to see how style changes are hot reloaded on file save without full page refresh
 - Stop development server.
 
   >  *NOTE: In most cases it could be done by hitting `Ctrl+C` in the terminal*
 
 
-- Run **`npm run build -s`** (or **`yarn run build`**) to bundle our project, then look at terminal output. If build was successful, Browsersync server will automatically start to serve files from **dist** folder, so we can test production version of our app
-
-
+- Run **`npm run build -s`** (or **`yarn run build`**) to bundle our project, then look at terminal output. If build was successful, Browsersync server will automatically start to serve files from **dist** folder, so we can test production version of our app. It will also automatically open new browser tab showing resulting bundle structure so we can analyse it and try to optimize.
 
 
 ## What's Inside?
@@ -114,14 +112,9 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 | [chalk](https://github.com/chalk/chalk) | This package allows us to choose colors for *console.log* messages that some of our scripts in **tools** folder print to terminal. |
 
 
-
-
-
 ## Acknowledgements
 
 This project is inspired by Cory House [coryhouse/react-slingshot](https://github.com/coryhouse/react-slingshot)
-
-Sample app initial implementation is taken from Dan Abramov [gaearon/react-hot-boilerplate](https://github.com/gaearon/react-hot-boilerplate/tree/next)
 
 Some ideas are taken from following starter kits:
 - Michael Pevzner [mihap/webpack-react-hot-bolerplate](https://github.com/mihap/webpack-react-hot-bolerplate)
@@ -132,26 +125,24 @@ Juho Vepsäläinen ["SurviveJS - Webpack"](http://survivejs.com/webpack/introduc
 
 ## TODO
 
-- [x] Choose example app for initial implementation
 - [x] Configure webpack for development
   - [x] Set up Babel
   - [x] Choose development server configuration
   - [x] Set up development config, tools and development related npm scripts
-- [x] Configure webpack for production (initial implementation)
+- [x] Configure webpack for production
   - [x] Set up production config, tools and production related npm scripts
 - [x] Set up ESLint
 - [x] Set up test environment
-- [x] Add README (for initial implementation)
+- [x] Add README
 - [x] Implement assets pipeline
 - [x] Choose methodology for styling
 - [x] Set up stylelint
 - [ ] Extend PostCSS config (add more plugins)
-- [ ] Replace example app with more advanced one that will utilize such technologies as:
-  - [ ] React Router v3 or v4
-  - [ ] Redux
+- [ ] Add an example app that will utilize such technologies as:
+  - [ ] react-router v4
+  - [ ] redux
   - [ ] redux-saga
 - [ ] Write test suites that will demonstrate all test tools, which are used in the project, in action
 - [ ] Tweak webpack production config:
   - [ ] Set up additional optimization plugins
-  - [ ] Choose and add tools for bundle analysing
-
+  - [x] Choose and add tools for bundle analysing

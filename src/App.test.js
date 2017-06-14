@@ -11,19 +11,23 @@ import sinonChai from 'sinon-chai';
 /* eslint-enable */
 /* eslint-disable no-unused-expressions */
 
-import Layout from './Layout';
+import App from './app';
 
 chai.use(chaiEnzyme());
 chai.use(sinonChai);
 
+// *** INSTRUCTIONS ***
+
 // Go to code below and replace current assertion with
-// expect(Layout).to.not.exist; to fail test suite.
+// expect(App).to.not.exist; to fail test suite.
 // Save the file to see test framework reporter output in terminal.
 // Then change assertion back to initial state and save file again.
 
+// *** END OF INSTRUCTIONS ***
 
-describe('Layout', () => {
+
+describe('App', () => {
   it('should exist ', () => {
-    expect(Layout).to.exist;
+    expect(App).to.exist;
   });
 });
