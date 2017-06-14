@@ -2,9 +2,12 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import SpriteLoaderPlugin from 'svg-sprite-loader/plugin';
+import ImageminPlugin from 'imagemin-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 
-import { DIST, NODE_MODULES, SRC } from './paths';
+import { DIST, SRC } from './paths';
 import fontRules from './rules-fonts';
 import javaScriptRules from './rules-javascript';
 import mediaRules from './rules-media';
@@ -15,9 +18,8 @@ export default {
   context: SRC,
 
   entry: [
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
-    './index_hot',
+    'whatwg-fetch',
+    './index',
   ],
 
   output: {
@@ -36,33 +38,34 @@ export default {
   },
 
   resolve: {
-    modules: [
-      `${NODE_MODULES}`,
-      `${SRC}/components`,
-      `${SRC}/containers`,
-    ],
-
-    extensions: ['.js', '.json', '.jsx'],
-
-    alias: {
-
-    },
+    modules: ['src', 'node_modules'],
+    extensions: ['.js', '.json', '.jsx', '.css'],
   },
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+    }),
     new HtmlWebpackPlugin({
       template: `${SRC}/index.ejs`,
     }),
     new ExtractTextPlugin({
-      disable: true,
+      filename: '[name].[contenthash:8].bundle.css',
     }),
     new SpriteLoaderPlugin(),
+    new ImageminPlugin({
+      gifsicle: {
+        interlaced: true,
+      },
+      jpegtran: {
+        progressive: true,
+      },
+    }),
+    new CompressionPlugin(),
+    new BundleAnalyzerPlugin(),
     new StyleLintPlugin({
       configFile: '.stylelintrc.js',
       files: ['**/*.css'],
@@ -70,5 +73,11 @@ export default {
     }),
   ],
 
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
+
+  performance: {
+    hints: 'warning',
+  },
+
+  profile: true,
 };

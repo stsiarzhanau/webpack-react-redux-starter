@@ -19,25 +19,13 @@ module.exports = {
 
   },
 
-  // settings: {
-  //   'import/resolver': {
-  //     webpack: {
-  //       config: './webpackConfig/webpack.config.dev.js',
-  //     },
-  //   },
-  // },
-
   settings: {
     'import/resolver': {
       webpack: {
         config: {
           resolve: {
-            modules: [
-              './node_modules',
-              './src/components',
-              './src/containers',
-            ],
-            extensions: ['.js', '.jsx'],
+            modules: ['src', 'node_modules'],
+            extensions: ['.js', '.json', '.jsx', '.css'],
           },
         },
       },
@@ -46,8 +34,8 @@ module.exports = {
 
 
   rules: {
-    'func-names': [2, 'as-needed'],
-    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
+    // import
+    'import/extensions': [2, 'never'],
     'import/no-extraneous-dependencies': [2, {
       devDependencies: [
         'tools/**',
@@ -55,6 +43,16 @@ module.exports = {
         '**/*.test.js',
         './*.js',
       ],
+      optionalDependencies: false,
+      peerDependencies: false,
     }],
+
+    // jsx-a11y
+
+    // react
+    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
+
+    // core
+    'func-names': [2, 'as-needed'],
   },
 };

@@ -8,7 +8,7 @@ import browserSync from 'browser-sync';
 import historyApiFallback from 'connect-history-api-fallback';
 import chalk from 'chalk';
 
-import webpackConfig from '../webpackConfig/webpack.config.prod';
+import webpackConfig from '../webpackConfig/config.prod';
 
 
 const env = process.env.NODE_ENV;
