@@ -6,6 +6,7 @@
 import webpack from 'webpack';
 import browserSync from 'browser-sync';
 import historyApiFallback from 'connect-history-api-fallback';
+import compression from 'compression';
 import chalk from 'chalk';
 
 import webpackConfig from '../webpackConfig/config.prod';
@@ -86,6 +87,7 @@ compiler.run((err, stats) => {
 
       middleware: [
         historyApiFallback(),
+        compression(),
       ],
     },
 
