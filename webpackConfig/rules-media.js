@@ -20,44 +20,67 @@ export default [
     ],
   },
 
+  // {
+  //   test: /^(?!.*\.inline\.svg$).*\.svg$/,
+  //   include: SRC,
+  //   use: [
+  //     {
+  //       loader: 'svg-url-loader',
+  //       options: {
+  //         name: path.join('[path]',
+  //           (env === 'production') ? '[name].[hash:8].[ext]' : '[name].[ext]'),
+  //         limit: 10000,
+  //       },
+  //     },
+  //   ],
+  // },
+
+  // {
+  //   test: /\.inline.svg$/,
+  //   include: SRC,
+  //   use: [
+  //     {
+  //       loader: 'babel-loader',
+  //       options: {
+  //         babelrc: false,
+  //         presets: ['es2015'],
+  //       },
+  //     },
+
+  //     {
+  //       loader: 'react-svg-loader',
+  //       options: {
+  //         svgo: {
+  //           plugins: [
+  //             { removeXMLNS: true },
+  //           ],
+  //           floatPrecision: 2,
+  //         },
+  //       },
+  //     },
+  //   ],
+  // },
+
   {
-    test: /^(?!.*\.inline\.svg$).*\.svg$/,
+    test: /\.svg$/,
     include: SRC,
     use: [
       {
-        loader: 'svg-url-loader',
+        loader: 'svg-sprite-loader',
         options: {
-          name: path.join('[path]',
-            (env === 'production') ? '[name].[hash:8].[ext]' : '[name].[ext]'),
-          limit: 10000,
+          symbolId: 'icon-[name]',
+          // extract: true,
+          // spriteFilename: 'icons.svg',
         },
       },
-    ],
-  },
-
-  {
-    test: /\.inline.svg$/,
-    include: SRC,
-    use: [
-      {
-        loader: 'babel-loader',
-        options: {
-          babelrc: false,
-          presets: ['es2015'],
-        },
-      },
-
-      {
-        loader: 'react-svg-loader',
-        options: {
-          svgo: {
-            plugins: [
-              { removeXMLNS: true },
-            ],
-            floatPrecision: 2,
-          },
-        },
-      },
+      // {
+      //   loader: 'svgo-loader',
+      //   options: {
+      //     plugins: [
+      //       // { removeXMLNS: true },
+      //     ],
+      //   },
+      // },
     ],
   },
 

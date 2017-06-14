@@ -1,21 +1,14 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import StyleLintPlugin from'stylelint-webpack-plugin';
+import SpriteLoaderPlugin from 'svg-sprite-loader/plugin';
+import StyleLintPlugin from 'stylelint-webpack-plugin';
 
 import { DIST, NODE_MODULES, SRC } from './paths';
 import fontRules from './rules-fonts';
 import javaScriptRules from './rules-javascript';
 import mediaRules from './rules-media';
 import styleRules from './rules-styles';
-
-
-const rules = [
-  ...fontRules,
-  ...javaScriptRules,
-  ...mediaRules,
-  ...styleRules,
-];
 
 
 export default {
@@ -34,7 +27,12 @@ export default {
   },
 
   module: {
-    rules,
+    rules: [
+      ...fontRules,
+      ...javaScriptRules,
+      ...styleRules,
+      ...mediaRules,
+    ],
   },
 
   resolve: {
@@ -64,6 +62,7 @@ export default {
     new ExtractTextPlugin({
       disable: true,
     }),
+    new SpriteLoaderPlugin(),
     new StyleLintPlugin({
       configFile: '.stylelintrc.js',
       files: ['**/*.css'],

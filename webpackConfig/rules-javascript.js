@@ -11,8 +11,8 @@ export default [
           babelrc: false,
           presets: [
             ['latest', { es2015: { modules: false } }],
-              'stage-3',
-              'react',
+            'stage-3',
+            'react',
           ],
 
           // plugins: [

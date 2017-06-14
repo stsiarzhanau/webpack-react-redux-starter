@@ -3,6 +3,7 @@
 
 import browserSync from 'browser-sync';
 import historyApiFallback from 'connect-history-api-fallback';
+import compression from 'compression';
 import chalk from 'chalk';
 
 const env = process.env.NODE_ENV;
@@ -14,6 +15,7 @@ bs.init({
 
     middleware: [
       historyApiFallback(),
+      compression(),
     ],
   },
 

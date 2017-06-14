@@ -53,6 +53,7 @@ module.exports = {
         'tools/**',
         'webpackConfig/**',
         '**/*.test.js',
+        './*.js',
       ],
     }],
   },
