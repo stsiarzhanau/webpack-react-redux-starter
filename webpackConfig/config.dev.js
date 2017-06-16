@@ -50,7 +50,7 @@ export default {
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-      template: `${SRC}/index.ejs`,
+      template: `${SRC}/index.html`,
     }),
     new ExtractTextPlugin({
       disable: true,

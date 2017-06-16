@@ -32,14 +32,14 @@ export default [
           // spriteFilename: 'icons.svg',
         },
       },
-      // {
-      //   loader: 'svgo-loader',
-      //   options: {
-      //     plugins: [
-      //       // { removeXMLNS: true },
-      //     ],
-      //   },
-      // },
+      {
+        loader: 'svgo-loader',
+        options: {
+          plugins: [
+            // { removeXMLNS: true },
+          ],
+        },
+      },
     ],
   },
 

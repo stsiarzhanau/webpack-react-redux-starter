@@ -11,10 +11,11 @@ import sinonChai from 'sinon-chai';
 /* eslint-enable */
 /* eslint-disable no-unused-expressions */
 
-import App from './app';
+import NavLinks from './index';
 
 chai.use(chaiEnzyme());
 chai.use(sinonChai);
+
 
 // *** INSTRUCTIONS ***
 
@@ -26,8 +27,8 @@ chai.use(sinonChai);
 // *** END OF INSTRUCTIONS ***
 
 
-describe('App', () => {
+describe('NavLinks', () => {
   it('should exist ', () => {
-    expect(App).to.exist;
+    expect(NavLinks).to.exist;
   });
 });

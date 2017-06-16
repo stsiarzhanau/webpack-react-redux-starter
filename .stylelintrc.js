@@ -20,5 +20,7 @@ module.exports = {
         'lost-waffle',
       ],
     }],
+    'comment-whitespace-inside': null,
+    indentation: null,
   },
 };

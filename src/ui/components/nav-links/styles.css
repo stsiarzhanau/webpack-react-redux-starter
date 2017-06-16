@@ -1,0 +1,29 @@
+.nav {
+  display: flex;
+  height: 16px;
+  user-select: none;
+}
+
+.link {
+  font-family: "Hussar Bold Web", Arial, sans-serif;
+  display: flex;
+  margin-right: 15px;
+  text-decoration: none;
+  color: rebeccapurple;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: tomato;
+}
+
+.activeLink {
+  text-decoration: underline;
+}
+
+.icon {
+  color: inherit;
+  height: 16px;
+  max-width: 21px;
+  padding-right: 5px;
+}

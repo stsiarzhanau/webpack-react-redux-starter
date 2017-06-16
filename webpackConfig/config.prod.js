@@ -50,7 +50,7 @@ export default {
       sourceMap: true,
     }),
     new HtmlWebpackPlugin({
-      template: `${SRC}/index.ejs`,
+      template: `${SRC}/index.html`,
     }),
     new ExtractTextPlugin({
       filename: '[name].[contenthash:8].bundle.css',
@@ -63,6 +63,7 @@ export default {
       jpegtran: {
         progressive: true,
       },
+      svgo: null,
     }),
     new CompressionPlugin(),
     new BundleAnalyzerPlugin(),
