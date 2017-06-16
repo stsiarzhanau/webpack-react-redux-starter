@@ -6,7 +6,7 @@ import s from './styles';
 
 
 const propTypes = {
-  glyph: PropTypes.string.isRequired,
+  glyph: PropTypes.object.isRequired,
   className: PropTypes.string,
 };
 
@@ -19,7 +19,7 @@ const Icon = ({ glyph, className }) => {
 
   return (
     <svg className={classes}>
-      <use xlinkHref={glyph} />
+      <use xlinkHref={`#${glyph.id}`} />
     </svg>
   );
 };

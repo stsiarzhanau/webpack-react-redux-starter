@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 import Icon from 'ui/components/icon';
 
-import 'res/icons/home.svg';
-import 'res/icons/about.svg';
-import 'res/icons/phone-call.svg';
+import homeIcon from 'res/icons/home.svg';
+import aboutIcon from 'res/icons/about.svg';
+import phoneIcon from 'res/icons/phone-call.svg';
 
 import s from './styles';
 
@@ -50,15 +50,15 @@ import s from './styles';
 const NavLinks = () => (
   <nav className={s.nav}>
     <NavLink exact to="/" className={s.link} activeClassName={s.activeLink}>
-      <Icon glyph="#icon-home" className={s.icon} />
+      <Icon glyph={homeIcon} className={s.icon} />
       Home
     </NavLink>
     <NavLink to="/about" className={s.link} activeClassName={s.activeLink}>
-      <Icon glyph="#icon-about" className={s.icon} />
+      <Icon glyph={aboutIcon} className={s.icon} />
       About
     </NavLink>
     <NavLink to="/contacts" className={s.link} activeClassName={s.activeLink}>
-      <Icon glyph="#icon-phone-call" className={s.icon} />
+      <Icon glyph={phoneIcon} className={s.icon} />
       Contacts
     </NavLink>
   </nav>
