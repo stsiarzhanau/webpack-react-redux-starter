@@ -18,7 +18,7 @@ export default {
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
     'whatwg-fetch',
-    './index_hot',
+    './index',
   ],
 
   output: {

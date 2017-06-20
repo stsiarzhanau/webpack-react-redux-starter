@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// eslint-disable-next-line
+import { AppContainer } from 'react-hot-loader';
 
-import App from './app';
+import App from './App';
 
 
-const rootEl = document.getElementById('react-root');
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('react-root'),
+  );
+};
 
-ReactDOM.render(
-  <App />,
-  rootEl // eslint-disable-line comma-dangle
-);
+render(App);
+
+if (module.hot) {
+  module.hot.accept('./App', () => { render(App); });
+}
