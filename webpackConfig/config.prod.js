@@ -18,6 +18,7 @@ export default {
   context: SRC,
 
   entry: [
+    'babel-polyfill',
     'whatwg-fetch',
     './index',
   ],

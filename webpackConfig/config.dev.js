@@ -15,9 +15,10 @@ export default {
   context: SRC,
 
   entry: [
+    'babel-polyfill',
+    'whatwg-fetch',
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
-    'whatwg-fetch',
     './index',
   ],
 

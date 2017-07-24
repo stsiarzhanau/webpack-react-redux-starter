@@ -52,7 +52,7 @@ compiler.run((err, stats) => {
 
   if (buildErrors) {
     console.log(chalk.red.bold(
-    `
+      `
 :(  ERRORS DURING COMPILATION!
 =>  Fix them and try again!`
     ));
