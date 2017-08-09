@@ -10,7 +10,7 @@
   margin-right: 15px;
   text-decoration: none;
   color: rebeccapurple;
-  transition: color 0.2s;
+  transition: color 0.1s linear;
 }
 
 .link:hover {

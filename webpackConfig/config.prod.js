@@ -24,7 +24,7 @@ export default {
   ],
 
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[chunkhash].js',
     path: DIST,
     publicPath: '/',
   },
@@ -52,6 +52,10 @@ export default {
     }),
     new HtmlWebpackPlugin({
       template: `${SRC}/index.html`,
+    }),
+    new webpack.HashedModuleIdsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'runtime',
     }),
     new ExtractTextPlugin({
       filename: '[name].[contenthash:8].bundle.css',
