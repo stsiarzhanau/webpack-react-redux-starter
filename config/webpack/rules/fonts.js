@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { SRC } from './paths';
+import { SRC } from '../paths';
 
 const env = process.env.NODE_ENV;
 
@@ -12,8 +12,10 @@ export default [
       {
         loader: 'url-loader',
         options: {
-          name: path.join('[path]',
-            (env === 'production') ? '[name].[hash:8].[ext]' : '[name].[ext]'),
+          name: path.join(
+            '[path]',
+            (env === 'production') ? '[name].[hash:8].[ext]' : '[name].[ext]',
+          ),
           limit: 20000,
         },
       },

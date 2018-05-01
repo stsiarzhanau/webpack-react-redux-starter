@@ -1,20 +1,18 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import SpriteLoaderPlugin from 'svg-sprite-loader/plugin';
 import ImageminPlugin from 'imagemin-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 import { DIST, SRC } from './paths';
-import fontRules from './rules-fonts';
-import javaScriptRules from './rules-javascript';
-import mediaRules from './rules-media';
-import styleRules from './rules-styles';
-
+import rules from './rules';
 
 export default {
+  mode: 'production',
   context: SRC,
 
   entry: [
@@ -30,12 +28,7 @@ export default {
   },
 
   module: {
-    rules: [
-      ...fontRules,
-      ...javaScriptRules,
-      ...styleRules,
-      ...mediaRules,
-    ],
+    rules,
   },
 
   resolve: {
@@ -47,17 +40,11 @@ export default {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-    }),
     new HtmlWebpackPlugin({
       template: `${SRC}/index.html`,
     }),
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'runtime',
-    }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name].[contenthash:8].bundle.css',
     }),
     new SpriteLoaderPlugin(),
@@ -78,6 +65,16 @@ export default {
       // syntax: 'scss',
     }),
   ],
+
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        test: /\.jsx?$/i,
+        parallel: 4,
+        sourceMap: true,
+      }),
+    ],
+  },
 
   devtool: 'source-map',
 

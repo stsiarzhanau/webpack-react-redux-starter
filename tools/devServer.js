@@ -1,14 +1,14 @@
 /* eslint-disable no-console */
 /* eslint-disable comma-dangle */
+/* eslint-disable function-paren-newline */
 
 import browserSync from 'browser-sync';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import historyApiFallback from 'connect-history-api-fallback';
 import chalk from 'chalk';
 
-import webpackConfig from '../webpackConfig/config.dev';
+import webpackConfig from '../config/webpack/config.dev';
 
 const env = process.env.NODE_ENV;
 const bs = browserSync.create();
@@ -31,10 +31,9 @@ const devMiddlewareOptions = {
 
 bs.init({
   server: {
-    baseDir: 'src',
+    baseDir: ['src'],
 
     middleware: [
-      historyApiFallback(),
       webpackDevMiddleware(compiler, devMiddlewareOptions),
       webpackHotMiddleware(compiler),
     ],
@@ -48,21 +47,15 @@ bs.init({
 
   open: false,
   reloadOnRestart: true,
-
-  // no need to watch '*.js' here, webpack will take care of it for us,
-  // including full page reloads if HMR won't work
-  files: [
-    'src/css/*.css',
-    // 'dist/*.html',
-  ],
+  single: true,
 });
 
 bs.emitter.on('init', () => {
   console.log(chalk.green(
     `
-[BS]  Browsersync server is running.
-[BS]  NODE_ENV is set to ${chalk.white.bold(env)}.
-[BS]  Access URLs are listed below.
+[Browsersync]  Browsersync server is running.
+[Browsersync]  NODE_ENV is set to ${chalk.white.bold(env)}.
+[Browsersync]  Access URLs are listed below.
     `
   ));
 });

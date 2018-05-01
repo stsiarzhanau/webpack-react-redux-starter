@@ -1,4 +1,4 @@
-import { SRC } from './paths';
+import { SRC } from '../paths';
 
 export default [
   {

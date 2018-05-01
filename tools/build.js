@@ -2,14 +2,14 @@
 
 /* eslint-disable no-console */
 /* eslint-disable comma-dangle */
+/* eslint-disable function-paren-newline */
 
 import webpack from 'webpack';
 import browserSync from 'browser-sync';
-import historyApiFallback from 'connect-history-api-fallback';
 import compression from 'compression';
 import chalk from 'chalk';
 
-import webpackConfig from '../webpackConfig/config.prod';
+import webpackConfig from '../config/webpack/config.prod';
 
 
 const env = process.env.NODE_ENV;
@@ -86,7 +86,6 @@ compiler.run((err, stats) => {
       baseDir: 'dist',
 
       middleware: [
-        historyApiFallback(),
         compression(),
       ],
     },
@@ -99,13 +98,14 @@ compiler.run((err, stats) => {
 
     open: false,
     reloadOnRestart: true,
+    single: true,
   });
 
   bs.emitter.on('init', () => {
     console.log(chalk.green(
-      `[BS]  Browsersync server is running.
-[BS]  NODE_ENV is set to ${chalk.white.bold(env)}.
-[BS]  Access URLs are listed below.
+      `[Browsersync]  Browsersync server is running.
+[Browsersync]  NODE_ENV is set to ${chalk.white.bold(env)}.
+[Browsersync]  Access URLs are listed below.
       `
     ));
   });

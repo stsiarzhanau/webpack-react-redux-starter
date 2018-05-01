@@ -39,7 +39,7 @@ module.exports = {
     'import/no-extraneous-dependencies': [2, {
       devDependencies: [
         'tools/**',
-        'webpackConfig/**',
+        'config/**',
         '**/*.test.js',
         './*.js',
       ],

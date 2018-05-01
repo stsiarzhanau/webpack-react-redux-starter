@@ -3,7 +3,8 @@
 import React from 'react';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-import { shallow, mount, render } from 'enzyme';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -12,6 +13,8 @@ import sinonChai from 'sinon-chai';
 /* eslint-disable no-unused-expressions */
 
 import NavLinks from './index';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 chai.use(chaiEnzyme());
 chai.use(sinonChai);

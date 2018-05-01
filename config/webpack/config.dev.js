@@ -1,17 +1,14 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import SpriteLoaderPlugin from 'svg-sprite-loader/plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 
 import { DIST, SRC } from './paths';
-import fontRules from './rules-fonts';
-import javaScriptRules from './rules-javascript';
-import mediaRules from './rules-media';
-import styleRules from './rules-styles';
+import rules from './rules';
 
 
 export default {
+  mode: 'development',
   context: SRC,
 
   entry: [
@@ -30,12 +27,7 @@ export default {
   },
 
   module: {
-    rules: [
-      ...fontRules,
-      ...javaScriptRules,
-      ...styleRules,
-      ...mediaRules,
-    ],
+    rules,
   },
 
   resolve: {
@@ -48,13 +40,8 @@ export default {
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: `${SRC}/index.html`,
-    }),
-    new ExtractTextPlugin({
-      disable: true,
     }),
     new SpriteLoaderPlugin(),
     new StyleLintPlugin({

@@ -1,6 +1,6 @@
 import path from 'path';
 
-const ROOT = path.resolve(__dirname, '../');
+const ROOT = path.resolve(__dirname, '../../');
 
 const resolvePath = relativePath => (
   path.resolve(ROOT, relativePath)

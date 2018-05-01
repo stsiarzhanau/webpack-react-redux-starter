@@ -6,6 +6,7 @@ import s from './styles';
 
 
 const propTypes = {
+  /* eslint-disable-next-line  react/forbid-prop-types */
   glyph: PropTypes.object.isRequired,
   className: PropTypes.string,
 };
