@@ -2,32 +2,28 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable function-paren-newline */
 
-import browserSync from 'browser-sync';
-import webpack from 'webpack';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-import chalk from 'chalk';
+import browserSync from 'browser-sync'
+import webpack from 'webpack'
+import webpackDevMiddleware from 'webpack-dev-middleware'
+import webpackHotMiddleware from 'webpack-hot-middleware'
+import chalk from 'chalk'
 
-import webpackConfig from '../config/webpack/config.dev';
+import webpackConfig from '../config/webpack/config.dev'
 
-const env = process.env.NODE_ENV;
-const bs = browserSync.create();
-const compiler = webpack(webpackConfig);
+const env = process.env.NODE_ENV
+const bs = browserSync.create()
+const compiler = webpack(webpackConfig)
 
 const devMiddlewareOptions = {
   publicPath: webpackConfig.output.publicPath,
   stats: {
-    context: webpackConfig.context,
-    hash: false,
-    version: false,
-    timings: false,
-    entrypoints: true,
-    chunkOrigins: true,
-    chunkModules: false,
-    children: false,
+    all: false,
+    timings: true,
+    warnings: true,
+    errors: true,
     colors: true,
   },
-};
+}
 
 bs.init({
   server: {
@@ -48,7 +44,7 @@ bs.init({
   open: false,
   reloadOnRestart: true,
   single: true,
-});
+})
 
 bs.emitter.on('init', () => {
   console.log(chalk.green(
@@ -57,5 +53,5 @@ bs.emitter.on('init', () => {
 [Browsersync]  NODE_ENV is set to ${chalk.white.bold(env)}.
 [Browsersync]  Access URLs are listed below.
     `
-  ));
-});
+  ))
+})

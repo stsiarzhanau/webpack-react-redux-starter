@@ -1,20 +1,19 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
-import { NODE_MODULES, SRC } from '../paths';
-
-const devMode = process.env.NODE_ENV !== 'production';
+import { NODE_MODULES, SRC } from '../paths'
+import { __PROD__ } from '../globals'
 
 export default [
   {
     test: /\.css$/,
     include: SRC,
     use: [
-      devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+      __PROD__ ? MiniCssExtractPlugin.loader : 'style-loader',
       {
         loader: 'css-loader',
         options: {
           modules: true,
-          localIdentName: '[path]___[name]__[local]___[hash:base64:5]',
+          localIdentName: '[path][local]',
           importLoaders: 1,
         },
       },
@@ -26,8 +25,8 @@ export default [
     test: /\.css$/,
     include: NODE_MODULES,
     use: [
-      devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+      __PROD__ ? MiniCssExtractPlugin.loader : 'style-loader',
       'css-loader',
     ],
   },
-];
+]

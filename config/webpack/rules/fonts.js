@@ -1,8 +1,7 @@
-import path from 'path';
+import path from 'path'
 
-import { SRC } from '../paths';
-
-const env = process.env.NODE_ENV;
+import { SRC } from '../paths'
+import { __PROD__ } from '../globals'
 
 export default [
   {
@@ -10,15 +9,14 @@ export default [
     include: SRC,
     use: [
       {
-        loader: 'url-loader',
+        loader: 'file-loader',
         options: {
           name: path.join(
             '[path]',
-            (env === 'production') ? '[name].[hash:8].[ext]' : '[name].[ext]',
+            __PROD__ ? '[name].[hash].[ext]' : '[name].[ext]',
           ),
-          limit: 20000,
         },
       },
     ],
   },
-];
+]

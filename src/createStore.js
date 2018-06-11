@@ -1,16 +1,20 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { routerReducer, routerMiddleware } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
+import { createStore, applyMiddleware } from 'redux'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { composeWithDevTools } from 'redux-devtools-extension'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
+import createHistory from 'history/createBrowserHistory'
 
-export const history = createHistory();
-const middleware = routerMiddleware(history);
+const rootReducer = state => state
+
+export const history = createHistory()
+
+const middleware = [
+  routerMiddleware(history),
+]
 
 const store = createStore(
-  combineReducers({
-    // ...reducers,
-    router: routerReducer,
-  }),
-  applyMiddleware(middleware),
-);
+  connectRouter(history)(rootReducer),
+  composeWithDevTools(applyMiddleware(...middleware)),
+)
 
-export default store;
+export default store

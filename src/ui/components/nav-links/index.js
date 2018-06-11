@@ -1,13 +1,13 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-import Icon from 'ui/components/icon';
+import Icon from 'ui/components/icon'
 
-import homeIcon from 'res/icons/home.svg';
-import aboutIcon from 'res/icons/about.svg';
-import phoneIcon from 'res/icons/phone-call.svg';
+import homeIcon from 'assets/icons/home.svg'
+import aboutIcon from 'assets/icons/about.svg'
+import phoneIcon from 'assets/icons/phone-call.svg'
 
-import s from './styles';
+import s from './styles'
 
 
 // *** INSTRUCTIONS ***
@@ -18,21 +18,11 @@ import s from './styles';
 // Open Chrome devTools (F12) and select 'console' tab.
 // Open your terminal (command line).
 
-// Uncomment the next statement and save the file to get an ESLint warning.
-// It will be shown both in your terminal and in devTools console.
-
-// console.log('BOO!');
-
-// Uncomment the next statement and save the file to get ESLint error.
-// It will be shown both in your terminal and in devTools console.
-
-// var a;
-
 // Uncomment the next statement and save the file to get a syntax error.
 // It will be shown both in your terminal, devTools console and also directly
 // in browser window (with the help of nice overlay).
 
-// vart a = b;
+// vart a = b
 
 // Comment all back to get rid of lint end syntax errors.
 
@@ -62,6 +52,6 @@ const NavLinks = () => (
       Contacts
     </NavLink>
   </nav>
-);
+)
 
-export default NavLinks;
+export default NavLinks

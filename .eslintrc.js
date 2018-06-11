@@ -2,12 +2,7 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   extends: 'airbnb',
-
-  plugins: [
-    'import',
-    'jsx-a11y',
-    'react',
-  ],
+  plugins: ['import', 'jsx-a11y', 'react'],
 
   env: {
     browser: true,
@@ -16,7 +11,8 @@ module.exports = {
   },
 
   globals: {
-
+    __DEV__: false,
+    __PROD__: false,
   },
 
   settings: {
@@ -54,5 +50,7 @@ module.exports = {
 
     // core
     'func-names': [2, 'as-needed'],
+    semi: [2, 'never'],
+    'no-unexpected-multiline': 2,
   },
 };

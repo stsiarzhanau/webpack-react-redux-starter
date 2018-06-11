@@ -1,7 +1,7 @@
-import fonts from './fonts';
-import js from './javascript';
-import media from './media';
-import styles from './styles';
+import fonts from './fonts'
+import js from './javascript'
+import media from './media'
+import styles from './styles'
 
 
 export default [
@@ -9,4 +9,4 @@ export default [
   ...js,
   ...media,
   ...styles,
-];
+]

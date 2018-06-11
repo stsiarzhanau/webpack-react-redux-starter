@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-import NavLinks from 'ui/components/nav-links';
-import Routes from 'ui/routes';
-import Counter from 'ui/components/counter';
+import NavLinks from 'ui/components/nav-links'
+import Routes from 'ui/routes'
+import Counter from 'ui/components/counter'
 
-import 'ui/app-styles';
+import 'ui/app-styles'
 
 
 const UI = () => (
@@ -13,6 +13,6 @@ const UI = () => (
     <Routes />
     <Counter />
   </div>
-);
+)
 
-export default UI;
+export default UI

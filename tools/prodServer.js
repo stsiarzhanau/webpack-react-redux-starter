@@ -2,12 +2,12 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable function-paren-newline */
 
-import browserSync from 'browser-sync';
-import compression from 'compression';
-import chalk from 'chalk';
+import browserSync from 'browser-sync'
+import compression from 'compression'
+import chalk from 'chalk'
 
-const env = process.env.NODE_ENV;
-const bs = browserSync.create();
+const env = process.env.NODE_ENV
+const bs = browserSync.create()
 
 bs.init({
   server: {
@@ -27,7 +27,7 @@ bs.init({
   open: false,
   reloadOnRestart: true,
   single: true,
-});
+})
 
 bs.emitter.on('init', () => {
   console.log(chalk.green(
@@ -35,5 +35,5 @@ bs.emitter.on('init', () => {
 [Browsersync]  NODE_ENV is set to ${chalk.white.bold(env)}.
 [Browsersync]  Access URLs are listed below.
     `
-  ));
-});
+  ))
+})

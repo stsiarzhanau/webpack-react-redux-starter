@@ -9,8 +9,6 @@
 - Only cutting-edge technologies
 - Great developer experience: 
   - **Advanced live reload** (with **Hot Module Replacement** :heart:) on every file save
-  - **Linting** JavaScript code with **[ESLint](http://eslint.org/)** on every file save
-  - **Linting** stylesheets with **[stylelint](https://stylelint.io/)** on every file save
   - **Unit testing** with **[Mocha](https://mochajs.org/)** on every file save
   - **Syncronized browser testing support** with **[Browsersync](https://browsersync.io/)**
 - Assets pipeline
@@ -33,12 +31,12 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 
 ## Usage
 
-- Run **`npm start -s`** (or **`yarn start`**) to start development server
+- Run **`npm run dev -s`** (or **`yarn dev`**) to start development server
 
   > *NOTE: The `-s` flag is optional. It enables silent mode, which suppresses unnecessary messages from npm, and so we get cleaner output.*
   
     
-- Open **index.js** file in **src/ui/components/nav-links** folder and follow instructions to see how lint and syntax errors are being handled and watch **Hot Module Replacement** in action
+- Open **index.js** file in **src/ui/components/nav-links** folder and follow instructions to see how syntax errors are being handled and watch **Hot Module Replacement** in action
 - Open **index.test.js** file in **src/ui/components/nav-links** folder and follow instructions to see how Mocha reports about failed unit tests
 - Open **styles.css** file in **src/ui/components/nav-links** folder and play with CSS to see how style changes are hot reloaded on file save without full page refresh
 - Stop development server
@@ -46,7 +44,9 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
   >  *NOTE: In most cases it could be done by hitting `Ctrl+C` in the terminal*
 
 
-- Run **`npm run build -s`** (or **`yarn run build`**) to bundle our project, then look at terminal output. If build was successful, Browsersync server will automatically start to serve files from **dist** folder, so we can test production version of our app. It will also automatically open new browser tab showing resulting bundle structure so we can analyse it and try to optimize.
+- Run **`npm run build -s`** (or **`yarn build`**) to bundle project.
+- Run **`npm start -s`** (or **`yarn start`**) to serve files from **dist** folder, so you can test production version of the app.
+- If build was successful, `webpack-bundle-analyzer` will start to serve report file at `http://127.0.0.1:8888`. You can go to that address in the browser to look at and analyse bundle structure.
 
 
 ## What's Inside?
@@ -101,6 +101,7 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 | [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) | This plugin is useful for production builds. Instead of inlining CSS code into resulting JavaScript bundle (like **style-loader** does) it creates separated CSS bundle file(s). If our total stylesheet volume is big, it will be faster because the CSS bundle is loaded in parallel to the JS bundle. *Before webpack v4 [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) was used instead* |
 | [postcss-loader](https://github.com/postcss/postcss-loader) | This loader allows us to process our stylesheets with [PostCSS](http://postcss.org/) plugins. It reads plugins configuration from **postcss.config.js** file. |
 | [imagemin-webpack-plugin](https://github.com/Klathmon/imagemin-webpack-plugin) | This plugin is useful for production builds. It allows us to minify (compress) our image assets and SVG's. Under the hood it uses a bunch of [imagemin](https://github.com/imagemin/imagemin) plugins. To read more about included plugins and their options see package README. |
+| [optimize-css-assets-webpack-plugin](https://github.com/NMFR/optimize-css-assets-webpack-plugin) | This plugin uses **css-nano** internally and allows to minify css assets in production mode. Comparing to using **css-nano** as **PostCSS** plugin with **post-css-loader** it minifies the whole bundle(s) instead of separate chunks which could be potentially faster and with a smaller result.
 |  | **PostCSS Plugins** |
 | [autoprefixer](https://github.com/postcss/autoprefixer) | The most popular **PostCSS** plugin. It automatically adds **vendor prefixes** to CSS rules using data from **Can I Use** website. NOTE: We can list browsers to support in **browserslist** configuration file. |
 | [lost](https://github.com/peterramsing/lost) | This PostCSS plugin provides us with a powerful and easy to use grid system. [More info.](http://lostgrid.org/docs.html#getting-started) |
@@ -114,8 +115,10 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 | [rimraf](https://github.com/isaacs/rimraf) | This bit of software provides us with `rimraf` command (the cross-platform equivalent to Unix `rm -rf` command, which allows us to remove folders with all their contents). |
 | [chalk](https://github.com/chalk/chalk) | This package allows us to choose colors for *console.log* messages that some of our scripts in **tools** folder print to terminal. |
 | [compression](https://github.com/expressjs/compression) | We use **compression-webpack-plugin** in our project to get compressed versions of app files. This middleware allows our local production server (*tools/prodServer.js, tools/build.js*) serve compressed files instead of the original when possible. So we can test app performance without deploying it on the back-end server. |
-| [pre-commit](https://github.com/observing/pre-commit) | This package will ensure that some script(s) (**`npm run lint`** for example) passes before you can commit your changes. We can configure it in our *package.json*. |
+| [husky](https://github.com/typicode/husky) | This package allows to add different **git** hooks. For example lint files before you can commit your changes. Those hooks can be configured in *package.json* like `"precommit": "lint-staged"`. |
+| [lint-staged](https://github.com/okonet/lint-staged) | With the help of this package we can run linter(s) only for files that are staged for commit. It's much more faster than to lint all files when project is large enough.  |
 | [whatwg-fetch](https://github.com/github/fetch) | Polyfill that implements a subset of the standard **Fetch specification** (that is a **modern replacement for XMLHttpRequest**) for not-so-modern browsers like IE. If we target only [modern browsers](http://caniuse.com/#search=fetch) that support Fetch we can remove this polyfill. |
+| [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) | This package connects redux store with **Chrome** **Redux DevTools** [extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd). |
 
 
 ## Acknowledgements
@@ -130,25 +133,8 @@ Juho Vepsäläinen ["SurviveJS - Webpack"](http://survivejs.com/webpack/introduc
 
 
 ## TODO
-
-- [x] Configure webpack for development
-  - [x] Set up Babel
-  - [x] Choose development server configuration
-  - [x] Set up development config, tools and development related npm scripts
-- [x] Configure webpack for production
-  - [x] Set up production config, tools and production related npm scripts
-- [x] Set up ESLint
-- [x] Set up test environment
-- [x] Add README
-- [x] Implement assets pipeline
-- [x] Choose methodology for styling
-- [x] Set up stylelint
-- [ ] Extend PostCSS config (add more plugins)
 - [ ] Add an example app that will utilize such technologies as:
   - [ ] react-router v4
   - [ ] redux
   - [ ] redux-saga
 - [ ] Write test suites that will demonstrate all test tools, which are used in the project, in action
-- [ ] Tweak webpack production config:
-  - [ ] Set up additional optimization plugins
-  - [x] Choose and add tools for bundle analysing

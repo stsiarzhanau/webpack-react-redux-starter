@@ -1,7 +1,7 @@
 # Supported browsers
 
 # To see all matching browser versions and total
-# users coverage run `npm run browsers` command
+# users coverage run `npm run list-browsers` command
 
 > .5%
 ie 9-11

@@ -1,6 +1,7 @@
-import { SRC } from '../paths';
+import { SRC } from '../paths'
+import { __PROD__ } from '../globals'
 
-export default [
+const rules = [
   {
     test: /\.jsx?$/,
     include: SRC,
@@ -9,29 +10,20 @@ export default [
         loader: 'babel-loader',
         options: {
           babelrc: false,
+          plugins: ['react-hot-loader/babel'],
           presets: [
             ['latest', { es2015: { modules: false } }],
             'stage-3',
             'react',
           ],
-
-          env: {
-            development: {
-              plugins: [
-                'react-hot-loader/babel',
-              ],
-            },
-
-            production: {
-              // TODO
-            },
-          },
         },
       },
     ],
   },
+]
 
-  {
+if (__PROD__) {
+  const eslintRule = {
     test: /\.jsx?$/,
     include: SRC,
     enforce: 'pre',
@@ -43,5 +35,10 @@ export default [
         },
       },
     ],
-  },
-];
+  }
+
+  rules.push(eslintRule)
+}
+
+
+export default rules

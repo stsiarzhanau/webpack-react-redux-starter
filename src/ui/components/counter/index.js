@@ -1,32 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import s from './styles';
+import s from './styles'
 
 
 export default class Counter extends Component {
   constructor(props) {
-    super(props);
-    this.state = { counter: 0 };
+    super(props)
+    this.state = { counter: 0 }
   }
 
   componentDidMount() {
-    this.interval = setInterval(this.tick.bind(this), 1000);
+    this.interval = setInterval(this.tick.bind(this), 1000)
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval);
+    clearInterval(this.interval)
   }
 
   tick() {
     this.setState({
       counter: this.state.counter + 1,
-    });
+    })
   }
 
   render() {
     return (
       <h3 className={s.counter}>Counter: {this.state.counter}</h3>
-    );
+    )
   }
 }
 

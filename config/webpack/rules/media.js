@@ -1,8 +1,7 @@
-import path from 'path';
+import path from 'path'
 
-import { SRC } from '../paths';
-
-const env = process.env.NODE_ENV;
+import { SRC } from '../paths'
+import { __PROD__ } from '../globals'
 
 export default [
   {
@@ -14,7 +13,7 @@ export default [
         options: {
           name: path.join(
             '[path]',
-            (env === 'production') ? '[name].[hash:8].[ext]' : '[name].[ext]',
+            __PROD__ ? '[name].[hash].[ext]' : '[name].[ext]',
           ),
           limit: 10000,
         },
@@ -29,16 +28,15 @@ export default [
       {
         loader: 'svg-sprite-loader',
         options: {
-          symbolId: 'icon-[name]',
-          // extract: true,
-          // spriteFilename: 'icons.svg',
+          extract: true,
+          spriteFilename: __PROD__ ? 'icons.[hash].svg' : 'icons.svg',
         },
       },
       {
         loader: 'svgo-loader',
         options: {
           plugins: [
-            // { removeXMLNS: true },
+            // TODO
           ],
         },
       },
@@ -50,15 +48,14 @@ export default [
     include: SRC,
     use: [
       {
-        loader: 'url-loader',
+        loader: 'file-loader',
         options: {
           name: path.join(
             '[path]',
-            (env === 'production') ? '[name].[hash:8].[ext]' : '[name].[ext]',
+            __PROD__ ? '[name].[hash].[ext]' : '[name].[ext]',
           ),
-          limit: 10000,
         },
       },
     ],
   },
-];
+]

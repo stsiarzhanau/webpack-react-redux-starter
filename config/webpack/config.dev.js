@@ -1,10 +1,9 @@
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import SpriteLoaderPlugin from 'svg-sprite-loader/plugin';
-import StyleLintPlugin from 'stylelint-webpack-plugin';
+import webpack from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import SpriteLoaderPlugin from 'svg-sprite-loader/plugin'
 
-import { DIST, SRC } from './paths';
-import rules from './rules';
+import { DIST, SRC } from './paths'
+import rules from './rules'
 
 
 export default {
@@ -14,16 +13,14 @@ export default {
   entry: [
     'babel-polyfill',
     'whatwg-fetch',
-    'react-hot-loader/patch',
     'webpack-hot-middleware/client',
     './index',
   ],
 
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: DIST,
     publicPath: '/',
-    pathinfo: true,
   },
 
   module: {
@@ -35,6 +32,12 @@ export default {
     extensions: ['.js', '.json', '.jsx', '.css'],
   },
 
+  optimization: {
+    minimize: false,
+    namedModules: true,
+    noEmitOnErrors: true,
+  },
+
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
@@ -42,14 +45,15 @@ export default {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: `${SRC}/index.html`,
+      favicon: 'favicon.ico',
     }),
     new SpriteLoaderPlugin(),
-    new StyleLintPlugin({
-      configFile: '.stylelintrc.js',
-      files: ['**/*.css'],
-      // syntax: 'scss',
-    }),
   ],
 
   devtool: 'eval-source-map',
-};
+  target: 'web',
+
+  performance: {
+    hints: false,
+  },
+}
