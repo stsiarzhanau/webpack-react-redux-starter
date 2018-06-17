@@ -8,7 +8,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import chalk from 'chalk'
 
-import webpackConfig from '../config/webpack/config.dev'
+import webpackConfig from '../config/webpack/webpack.config-dev'
 
 const env = process.env.NODE_ENV
 const bs = browserSync.create()

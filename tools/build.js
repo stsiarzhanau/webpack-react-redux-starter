@@ -1,4 +1,4 @@
-// More info: https://webpack.js.org/api/node/
+/* https://webpack.js.org/api/node */
 
 /* eslint-disable no-console */
 /* eslint-disable comma-dangle */
@@ -7,7 +7,7 @@
 import webpack from 'webpack'
 import chalk from 'chalk'
 
-import webpackConfig from '../config/webpack/config.prod'
+import webpackConfig from '../config/webpack/webpack.config-prod'
 
 
 const env = process.env.NODE_ENV

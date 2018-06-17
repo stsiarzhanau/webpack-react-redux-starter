@@ -30,27 +30,41 @@ module.exports = {
 
 
   rules: {
-    // import
+    /* eslint-plugin-import */
     'import/extensions': [2, 'never'],
     'import/no-extraneous-dependencies': [2, {
       devDependencies: [
         'tools/**',
         'config/**',
-        '**/*.test.js',
         './*.js',
       ],
       optionalDependencies: false,
       peerDependencies: false,
     }],
 
-    // jsx-a11y
-
-    // react
+    /* eslint-plugin-react */
     'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
 
-    // core
+    /* core */
     'func-names': [2, 'as-needed'],
     semi: [2, 'never'],
     'no-unexpected-multiline': 2,
   },
-};
+
+  overrides: [
+    {
+      files: "**/*.test.js",
+      globals: {
+        expect: false,
+        sinon: false,
+        shallow: false,
+        mount: false,
+        render: false,
+      },
+      rules: {
+        /* https://github.com/eslint/eslint/issues/2102 */
+        'no-unused-expressions': false,
+      },
+    },
+  ],
+}

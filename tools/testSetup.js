@@ -1,34 +1,21 @@
-const ignoredExtensions = [
-  '.css', '.scss',
-  '.gif', '.jpg', '.jpeg', '.png', '.webp', '.svg',
-  '.mp4', '.m4a', '.webm', '.ogv', '.oga', '.ogg', '.mp3', '.wav',
-]
+require('babel-polyfill')
+require('./jsdomSetup')
 
-ignoredExtensions.forEach((ext) => {
-  require.extensions[ext] = () => null
-})
+const chai = require('chai')
+const chaiAsPromised = require('chai-as-promised')
+const sinon = require('sinon')
+const sinonChai = require('sinon-chai')
+const Enzyme = require('enzyme')
+const Adapter = require('enzyme-adapter-react-16')
+const chaiEnzyme = require('chai-enzyme')
 
-require('babel-register')()
+chai.use(chaiAsPromised)
+chai.use(sinonChai)
+chai.use(chaiEnzyme())
+Enzyme.configure({ adapter: new Adapter() })
 
-const { JSDOM } = require('jsdom')
-
-const jsdom = new JSDOM('<!doctype html><html><body></body></html>')
-const { window } = jsdom
-
-function copyProps(src, target) {
-  const props = Object.getOwnPropertyNames(src)
-    .filter(prop => typeof target[prop] === 'undefined')
-    .reduce((result, prop) => ({
-      ...result,
-      [prop]: Object.getOwnPropertyDescriptor(src, prop),
-    }), {})
-  Object.defineProperties(target, props)
-}
-
-global.window = window
-global.document = window.document
-global.navigator = {
-  userAgent: 'node.js',
-}
-
-copyProps(window, global)
+global.expect = chai.expect
+global.sinon = sinon
+global.shallow = Enzyme.shallow
+global.mount = Enzyme.mount
+global.render = Enzyme.render

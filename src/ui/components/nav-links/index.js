@@ -24,11 +24,10 @@ import s from './styles'
 
 // vart a = b
 
-// Comment all back to get rid of lint end syntax errors.
+// Comment all back to get rid of syntax error.
 
 // Now let's try how Hot Module Replacement works.
 // Go to code below and change the text inside of any <NavLink> component.
-// For example to something like 'Hello, everybody!'.
 // Save the file.
 // You should see changes in your browser.
 // Note that there was no full page reload and we haven't lost app state

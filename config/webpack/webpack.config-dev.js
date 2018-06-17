@@ -3,8 +3,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import SpriteLoaderPlugin from 'svg-sprite-loader/plugin'
 
 import { DIST, SRC } from './paths'
+import GLOBALS from './envVariables'
 import rules from './rules'
-
 
 export default {
   mode: 'development',
@@ -39,9 +39,7 @@ export default {
   },
 
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-    }),
+    new webpack.DefinePlugin(GLOBALS),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: `${SRC}/index.html`,

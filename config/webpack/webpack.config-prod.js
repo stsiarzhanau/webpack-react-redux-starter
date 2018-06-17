@@ -10,6 +10,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import StyleLintPlugin from 'stylelint-webpack-plugin'
 
 import { DIST, SRC } from './paths'
+import GLOBALS from './envVariables'
 import rules from './rules'
 
 export default {
@@ -63,9 +64,7 @@ export default {
   },
 
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
+    new webpack.DefinePlugin(GLOBALS),
     new HtmlWebpackPlugin({
       template: `${SRC}/index.html`,
       favicon: 'favicon.ico',

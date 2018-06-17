@@ -1,23 +1,31 @@
+/* post-css settings are in postcss.config.js */
+
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 import { NODE_MODULES, SRC } from '../paths'
-import { __PROD__ } from '../globals'
+import { isProd } from '../envVariables'
 
 export default [
   {
     test: /\.css$/,
     include: SRC,
     use: [
-      __PROD__ ? MiniCssExtractPlugin.loader : 'style-loader',
+      isProd ? MiniCssExtractPlugin.loader : 'style-loader',
       {
         loader: 'css-loader',
         options: {
           modules: true,
           localIdentName: '[path][local]',
+          // sourceMap: isDev,
           importLoaders: 1,
         },
       },
-      'postcss-loader',
+      {
+        loader: 'postcss-loader',
+        options: {
+          // sourceMap: isDev,
+        },
+      },
     ],
   },
 
@@ -25,7 +33,7 @@ export default [
     test: /\.css$/,
     include: NODE_MODULES,
     use: [
-      __PROD__ ? MiniCssExtractPlugin.loader : 'style-loader',
+      isProd ? MiniCssExtractPlugin.loader : 'style-loader',
       'css-loader',
     ],
   },

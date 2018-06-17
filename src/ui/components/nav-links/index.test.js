@@ -1,24 +1,6 @@
-/* eslint-disable no-unused-vars */
-
 import React from 'react'
-import chai, { expect } from 'chai'
-import chaiEnzyme from 'chai-enzyme'
-import Enzyme from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-
-import sinon from 'sinon'
-import sinonChai from 'sinon-chai'
-
-/* eslint-enable */
-/* eslint-disable no-unused-expressions */
-
+import { NavLink } from 'react-router-dom'
 import NavLinks from './index'
-
-Enzyme.configure({ adapter: new Adapter() })
-
-chai.use(chaiEnzyme())
-chai.use(sinonChai)
-
 
 // *** INSTRUCTIONS ***
 
@@ -29,9 +11,15 @@ chai.use(sinonChai)
 
 // *** END OF INSTRUCTIONS ***
 
-
 describe('NavLinks', () => {
   it('should exist ', () => {
     expect(NavLinks).to.exist
+  })
+})
+
+describe('NavLinks', () => {
+  it('renders 3 NavLink components', () => {
+    const wrapper = shallow(<NavLinks />)
+    expect(wrapper.find(NavLink)).to.have.length(3)
   })
 })

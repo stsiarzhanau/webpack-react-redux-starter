@@ -1,7 +1,20 @@
+# NodeJS
 node_modules
-__src
-__trash
 npm-debug.log
+
+# Yarn
 yarn-error.log
+
+# coverage
+.nyc_output
+coverage
+
+# WebStorm
+.idea
+
+# macOS
 .DS_Store
+
+# project
+__trash__
 dist

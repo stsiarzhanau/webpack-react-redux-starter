@@ -1,5 +1,5 @@
 import { SRC } from '../paths'
-import { __PROD__ } from '../globals'
+import { isProd, isCover } from '../envVariables'
 
 const rules = [
   {
@@ -22,8 +22,8 @@ const rules = [
   },
 ]
 
-if (__PROD__) {
-  const eslintRule = {
+if (isProd) {
+  rules.push({
     test: /\.jsx?$/,
     include: SRC,
     enforce: 'pre',
@@ -35,10 +35,20 @@ if (__PROD__) {
         },
       },
     ],
-  }
-
-  rules.push(eslintRule)
+  })
 }
 
+/* https://github.com/zinserjan/mocha-webpack/blob/master/docs/guides/code-coverage.md */
+if (isCover) {
+  rules.unshift({
+    test: /\.jsx?$/,
+    include: SRC,
+    enforce: 'post',
+    use: {
+      loader: 'istanbul-instrumenter-loader',
+      options: { esModules: true },
+    },
+  })
+}
 
 export default rules

@@ -1,0 +1,5 @@
+--require tools/testSetup.js
+--reporter progress
+--ui bdd
+--webpack-config config/webpack/webpack.config-test.js
+src/**/*.test.js

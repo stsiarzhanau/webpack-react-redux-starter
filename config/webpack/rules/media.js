@@ -1,7 +1,7 @@
 import path from 'path'
 
 import { SRC } from '../paths'
-import { __PROD__ } from '../globals'
+import { isProd } from '../envVariables'
 
 export default [
   {
@@ -13,7 +13,7 @@ export default [
         options: {
           name: path.join(
             '[path]',
-            __PROD__ ? '[name].[hash].[ext]' : '[name].[ext]',
+            isProd ? '[name].[hash].[ext]' : '[name].[ext]',
           ),
           limit: 10000,
         },
@@ -29,7 +29,7 @@ export default [
         loader: 'svg-sprite-loader',
         options: {
           extract: true,
-          spriteFilename: __PROD__ ? 'icons.[hash].svg' : 'icons.svg',
+          spriteFilename: isProd ? 'icons.[hash].svg' : 'icons.svg',
         },
       },
       {
@@ -52,7 +52,7 @@ export default [
         options: {
           name: path.join(
             '[path]',
-            __PROD__ ? '[name].[hash].[ext]' : '[name].[ext]',
+            isProd ? '[name].[hash].[ext]' : '[name].[ext]',
           ),
         },
       },
