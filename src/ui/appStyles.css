@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Hussar Bold Web";
+  src: url(assets/fonts/HussarBoldWeb.woff) format("woff");
+}
+
+:root {
+  --linkColor: rebeccapurple;
+  --linkHoverColor: tomato;
+}
+
+body {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html, body, #react-root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+body {
+  background-color: #e9ebf8;
+}
+
+.pageContent {
+  flex-grow: 1;
+}

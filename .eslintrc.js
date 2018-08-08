@@ -21,7 +21,7 @@ module.exports = {
         config: {
           resolve: {
             modules: ['src', 'node_modules'],
-            extensions: ['.js', '.json', '.jsx', '.css'],
+            extensions: ['.js', '.json', '.jsx'],
           },
         },
       },
@@ -43,17 +43,20 @@ module.exports = {
     }],
 
     /* eslint-plugin-react */
-    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-one-expression-per-line': 0,
 
     /* core */
-    'func-names': [2, 'as-needed'],
+    'func-names': 0,
     semi: [2, 'never'],
     'no-unexpected-multiline': 2,
+    'no-param-reassign': 0,
+    'prefer-arrow-callback': 0,
   },
 
   overrides: [
     {
-      files: "**/*.test.js",
+      files: '**/*.test.js',
       globals: {
         expect: false,
         sinon: false,
@@ -63,7 +66,7 @@ module.exports = {
       },
       rules: {
         /* https://github.com/eslint/eslint/issues/2102 */
-        'no-unused-expressions': false,
+        'no-unused-expressions': 0,
       },
     },
   ],

@@ -1,13 +1,10 @@
 /* https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md */
-
-require('babel-register')()
-
-const { JSDOM } = require('jsdom')
+import { JSDOM } from 'jsdom'
 
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>')
 const { window } = jsdom
 
-function copyProps(src, target) {
+const copyProps = (src, target) => {
   const props = Object.getOwnPropertyNames(src)
     .filter(prop => typeof target[prop] === 'undefined')
     .reduce((result, prop) => ({

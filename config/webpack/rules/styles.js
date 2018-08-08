@@ -2,12 +2,12 @@
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
-import { NODE_MODULES, SRC } from '../paths'
+import { SRC } from '../paths'
 import { isProd } from '../envVariables'
 
 export default [
   {
-    test: /\.css$/,
+    test: /\.module\.css$/,
     include: SRC,
     use: [
       isProd ? MiniCssExtractPlugin.loader : 'style-loader',
@@ -30,11 +30,17 @@ export default [
   },
 
   {
-    test: /\.css$/,
-    include: NODE_MODULES,
+    test: /^((?!\.module\.).)*\.css$/,
     use: [
       isProd ? MiniCssExtractPlugin.loader : 'style-loader',
-      'css-loader',
+      {
+        loader: 'css-loader',
+        options: {
+          url: false,
+          importLoaders: 1,
+        },
+      },
+      'postcss-loader',
     ],
   },
 ]

@@ -1,13 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import Icon from 'ui/components/icon'
+import Icon from 'ui/components/Icon'
 
 import homeIcon from 'assets/icons/home.svg'
 import aboutIcon from 'assets/icons/about.svg'
 import phoneIcon from 'assets/icons/phone-call.svg'
 
-import s from './styles'
+import s from './NavLinks.module.css'
 
 
 // *** INSTRUCTIONS ***

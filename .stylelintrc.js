@@ -1,7 +1,7 @@
 module.exports = {
   extends: 'stylelint-config-standard',
   rules: {
-    'property-no-unknown': [ true, {
+    'property-no-unknown': [true, {
       ignoreProperties: [
         'composes',
         'lost-align',
@@ -20,7 +20,9 @@ module.exports = {
         'lost-waffle',
       ],
     }],
+    'comment-empty-line-before': null,
     'comment-whitespace-inside': null,
     indentation: null,
+    'selector-list-comma-newline-after': 'always-multi-line',
   },
-};
+}

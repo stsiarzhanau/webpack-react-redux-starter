@@ -1,0 +1,10 @@
+.root {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #8b0000;
+}
+
+.heading {
+  margin-top: 0;
+}

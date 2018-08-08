@@ -1,0 +1,7 @@
+coverage
+node_modules
+__trash__
+dist
+!.babelrc.js
+!.eslintrc.js
+!.stylelintrc.js

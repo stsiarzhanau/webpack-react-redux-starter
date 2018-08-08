@@ -11,10 +11,10 @@ export default {
   context: SRC,
 
   entry: [
-    'babel-polyfill',
+    '@babel/polyfill',
     'whatwg-fetch',
     'webpack-hot-middleware/client',
-    './index',
+    './main',
   ],
 
   output: {
@@ -29,12 +29,13 @@ export default {
 
   resolve: {
     modules: ['src', 'node_modules'],
-    extensions: ['.js', '.json', '.jsx', '.css'],
+    extensions: ['.js', '.json', '.jsx'],
   },
 
   optimization: {
     minimize: false,
-    namedModules: true,
+    moduleIds: 'named',
+    chunkIds: 'named',
     noEmitOnErrors: true,
   },
 

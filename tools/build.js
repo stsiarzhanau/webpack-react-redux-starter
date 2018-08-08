@@ -34,6 +34,14 @@ compiler.run((err, stats) => {
     return
   }
 
+  console.log(stats.toString({
+    all: false,
+    timings: true,
+    warnings: true,
+    errors: true,
+    colors: true,
+  }))
+
   if (stats.hasErrors()) {
     console.log(chalk.red.bold(
       `
@@ -43,14 +51,6 @@ compiler.run((err, stats) => {
 
     return
   }
-
-  console.log(stats.toString({
-    all: false,
-    timings: true,
-    warnings: true,
-    errors: true,
-    colors: true,
-  }))
 
   console.log(chalk.green(
     `

@@ -18,9 +18,9 @@ export default {
   context: SRC,
 
   entry: [
-    'babel-polyfill',
+    '@babel/polyfill',
     'whatwg-fetch',
-    './index',
+    './main',
   ],
 
   output: {
@@ -35,7 +35,7 @@ export default {
 
   resolve: {
     modules: ['src', 'node_modules'],
-    extensions: ['.js', '.json', '.jsx', '.css'],
+    extensions: ['.js', '.json', '.jsx'],
   },
 
   optimization: {
@@ -52,12 +52,10 @@ export default {
         },
       }),
     ],
-    namedModules: false,
+    moduleIds: 'hashed',
+    chunkIds: 'size',
     noEmitOnErrors: true,
-    occurrenceOrder: true,
-    runtimeChunk: {
-      name: 'webpack.runtime',
-    },
+    runtimeChunk: true,
     splitChunks: {
       chunks: 'all',
     },
@@ -89,6 +87,7 @@ export default {
     new StyleLintPlugin({
       configFile: '.stylelintrc.js',
       files: ['**/*.css'],
+      emitErrors: false,
     }),
   ],
 

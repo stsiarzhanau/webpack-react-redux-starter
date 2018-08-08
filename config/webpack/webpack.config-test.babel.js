@@ -8,7 +8,7 @@ import { SRC } from './paths'
 import GLOBALS from './envVariables'
 import rules from './rules'
 
-export default {
+module.exports = {
   mode: 'none',
   context: SRC,
 
@@ -23,12 +23,13 @@ export default {
 
   resolve: {
     modules: ['src', 'node_modules'],
-    extensions: ['.js', '.json', '.jsx', '.css'],
+    extensions: ['.js', '.json', '.jsx'],
   },
 
   optimization: {
     minimize: false,
-    namedModules: true,
+    moduleIds: 'named',
+    chunkIds: 'named',
     noEmitOnErrors: true,
   },
 

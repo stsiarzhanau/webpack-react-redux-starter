@@ -9,12 +9,12 @@
   display: flex;
   margin-right: 15px;
   text-decoration: none;
-  color: rebeccapurple;
+  color: var(--linkColor);
   transition: color 0.1s linear;
 }
 
 .link:hover {
-  color: tomato;
+  color: var(--linkHoverColor);
 }
 
 .activeLink {
