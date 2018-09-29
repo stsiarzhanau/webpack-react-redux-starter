@@ -93,9 +93,9 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 | [enzyme](https://github.com/airbnb/enzyme) | This package is another React-specific testing utility. It's built on top of **react-dom/test-utils** and **react-test-renderer**, but with Enzyme it's much easier to assert, manipulate, and traverse React components' output. Enzyme's API is meant to be intuitive and flexible by mimicking jQuery's API for DOM manipulation and traversal.|
 | [enzyme-adapter-react-16](https://github.com/airbnb/enzyme/tree/master/packages/enzyme-adapter-react-16) | We need to install **enzyme** along with an Adapter corresponding to the version of React (or other UI Component library) we are using. |
 | [chai-enzyme](https://github.com/producthunt/chai-enzyme) | This **chai** plugin provides additional assertions for testing React components with Enzyme. |
-| [cheerio](https://github.com/cheeriojs/cheerio) | *TODO:* |
-| [nyc](https://github.com/istanbuljs/nyc) | *TODO:* |
-| [istanbul-instrumenter-loader](https://github.com/webpack-contrib/istanbul-instrumenter-loader) | *TODO:*  |
+| [cheerio](https://github.com/cheeriojs/cheerio) | Implementation of core jQuery designed specifically for the server. We don't utilize this package directly. It's installed, because **chai-enzyme** requires it as a peer dependency. |
+| [nyc](https://github.com/istanbuljs/nyc) | CLI for [istanbul](https://github.com/gotwarlost/istanbul) that collects coverage data & generates coverage reports. [More info](https://github.com/zinserjan/mocha-webpack/blob/master/docs/guides/code-coverage.md). |
+| [istanbul-instrumenter-loader](https://github.com/webpack-contrib/istanbul-instrumenter-loader) | Loader that wraps code with hooks to track coverage when your code get's executed. [More info](https://github.com/zinserjan/mocha-webpack/blob/master/docs/guides/code-coverage.md). |
 | [webpack-node-externals](https://github.com/producthunt/chai-enzyme) | Allows webpack not to bundle packages from node_modules into test bundle and just require them instead that improves test build speed. |
 |  | **Assets/Styles** |
 | [file-loader](https://github.com/webpack-contrib/file-loader) | This loader helps us to handle assets (like images, custom fonts, video, etc.). When in our code we refer to some asset (for example *logo.png*), **file-loader** copies that *logo.png* file into output directory (**dist**) and creates an entry with path to this file inside of resulting bundle (**bundle.js**). So, our production code in resulting bundle, which needs the *logo.png*, knows where to find that image. **file-loader** can be configured through options. To read more about possible options see package README. |
@@ -127,7 +127,7 @@ You should have [Node.js](https://nodejs.org/en/) installed. Optionally you can 
 | [lint-staged](https://github.com/okonet/lint-staged) | With the help of this package we can run linter(s) only for files that are staged for commit. It's much more faster than to lint all files when project is large enough.  |
 | [whatwg-fetch](https://github.com/github/fetch) | Polyfill that implements a subset of the standard **Fetch specification** (that is a **modern replacement for XMLHttpRequest**) for not-so-modern browsers like IE. If we target only [modern browsers](http://caniuse.com/#search=fetch) that support Fetch we can remove this polyfill. |
 | [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) | This package connects redux store with **Chrome** **Redux DevTools** [extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd). |
-| [browserslist](https://github.com/browserslist/browserslist) | *TODO:*  |
+| [browserslist](https://github.com/browserslist/browserslist) | This package allows to configure target browsers in one place and share those stettings between different front-end tools, like **autoprefixer**, **stylelint** and **@babel/preset-env**  |
 
 
 ## Acknowledgements
