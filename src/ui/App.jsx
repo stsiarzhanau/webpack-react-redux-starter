@@ -6,7 +6,7 @@ import AppFooter from 'ui/components/AppFooter'
 import Routes from 'ui/routes'
 import Counter from 'ui/components/Counter'
 
-import 'ui/appStyles.css'
+import 'ui/styles/appStyles.css'
 
 
 const App = () => (
