@@ -36,7 +36,6 @@ export default [
       {
         loader: 'css-loader',
         options: {
-          url: false,
           importLoaders: 1,
         },
       },

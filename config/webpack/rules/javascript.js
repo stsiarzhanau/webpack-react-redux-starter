@@ -36,6 +36,7 @@ const rules = [
             '@babel/preset-react',
           ],
           plugins: [
+            /* https://github.com/gaearon/react-hot-loader#getting-started */
             'react-hot-loader/babel',
 
             // Stage 0

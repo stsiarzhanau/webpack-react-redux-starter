@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
 
 import ErrorBoundary from 'ui/components/ErrorBoundary'
 import AppHeader from 'ui/components/AppHeader'
@@ -20,4 +21,5 @@ const App = () => (
   </ErrorBoundary>
 )
 
-export default App
+/* https://github.com/gaearon/react-hot-loader#getting-started */
+export default hot(App)

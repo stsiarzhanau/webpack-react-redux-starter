@@ -1,16 +1,18 @@
 /* https://redux.js.org/recipes/configuring-your-store */
+/* https://github.com/supasate/connected-react-router#step-2 */
 
-import { createStore, applyMiddleware } from 'redux'
-import createHistory from 'history/createBrowserHistory'
+import { applyMiddleware, createStore } from 'redux'
+import { createBrowserHistory } from 'history'
+import { routerMiddleware } from 'connected-react-router'
 import createSagaMiddleware from 'redux-saga'
-import { connectRouter, routerMiddleware } from 'connected-react-router'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-import rootReducer from './modules'
+import createRootReducer from './modules'
 
-export const history = createHistory()
+export const history = createBrowserHistory()
 const sagaMiddleware = createSagaMiddleware()
+const rootReducer = createRootReducer(history)
 
 export default function configureStore(preloadedState) {
   const middlewares = [
@@ -23,12 +25,12 @@ export default function configureStore(preloadedState) {
   const composedEnhancers = composeWithDevTools(...enhancers)
 
   const store = createStore(
-    connectRouter(history)(rootReducer),
+    rootReducer,
     preloadedState,
     composedEnhancers,
   )
 
-  if (module.hot) {
+  if (process.env.NODE_ENV !== 'production' && module.hot) {
     module.hot.accept('./modules', () => {
       store.replaceReducer(rootReducer)
     })

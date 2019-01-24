@@ -45,13 +45,19 @@ module.exports = {
     /* eslint-plugin-react */
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-one-expression-per-line': 0,
+    'react/prefer-stateless-function': 0,
 
     /* core */
+    'arrow-body-style': 0,
     'func-names': 0,
-    semi: [2, 'never'],
-    'no-unexpected-multiline': 2,
+    'implicit-arrow-linebreak': 0,
+    'max-len': [1, 120],
     'no-param-reassign': 0,
+    'no-unexpected-multiline': 2,
+    'no-useless-escape': 0,
+    'object-curly-newline': 0,
     'prefer-arrow-callback': 0,
+    semi: [2, 'never'],
   },
 
   overrides: [
