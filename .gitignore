@@ -12,6 +12,9 @@ coverage
 # WebStorm
 .idea
 
+# VSCode
+.vscode
+
 # macOS
 .DS_Store
 
