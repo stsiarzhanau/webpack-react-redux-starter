@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   extends: 'airbnb',
-  plugins: ['import', 'jsx-a11y', 'react'],
+  plugins: ['import', 'jsx-a11y', 'react', 'react-hooks'],
 
   env: {
     browser: true,
@@ -46,6 +46,10 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-one-expression-per-line': 0,
     'react/prefer-stateless-function': 0,
+
+    /* eslint-plugin-react-hooks */
+    'react-hooks/rules-of-hooks': 2,
+    'react-hooks/exhaustive-deps': 1,
 
     /* core */
     'arrow-body-style': 0,
