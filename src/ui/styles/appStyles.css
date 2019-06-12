@@ -4,15 +4,12 @@
 }
 
 :root {
-  --linkColor: rebeccapurple;
+  --textColor: #fff;
   --linkHoverColor: tomato;
 }
 
-body {
-  margin: 0;
-}
-
 html {
+  /* font-size: 62.5%; */
   box-sizing: border-box;
 }
 
@@ -26,11 +23,14 @@ html, body, #react-root {
   flex-direction: column;
 }
 
-/* stylelint-disable-next-line no-duplicate-selectors */
 body {
-  background-color: #e9ebf8;
+  margin: 0;
+  background-image: url("~assets/images/bg.png");
+  background-size: cover;
+  font-family: "Roboto", sans-serif;
 }
 
 .pageContent {
+  padding: 0 16px;
   flex-grow: 1;
 }

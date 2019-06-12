@@ -20,7 +20,7 @@ const Counter = () => {
 
 
   return (
-    <h3 className={s.counter}>Counter: {count}</h3>
+    <h6 className={s.counter}>Counter: {count}</h6>
   )
 }
 

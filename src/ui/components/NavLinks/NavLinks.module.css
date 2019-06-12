@@ -1,15 +1,16 @@
 .nav {
+  margin-right: 1px;
   display: flex;
-  height: 16px;
+  align-items: center;
+  height: 64px;
   user-select: none;
 }
 
 .link {
-  font-family: "Hussar Bold Web", Arial, sans-serif;
   display: flex;
   margin-right: 15px;
   text-decoration: none;
-  color: var(--linkColor);
+  color: var(--textColor);
   transition: color 0.1s linear;
 }
 

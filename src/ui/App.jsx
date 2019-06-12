@@ -5,7 +5,6 @@ import ErrorBoundary from 'ui/components/ErrorBoundary'
 import AppHeader from 'ui/components/AppHeader'
 import AppFooter from 'ui/components/AppFooter'
 import Routes from 'ui/routes'
-import Counter from 'ui/components/Counter'
 
 import 'ui/styles/appStyles.css'
 
@@ -16,7 +15,6 @@ const App = () => (
     <div className="pageContent">
       <Routes />
     </div>
-    <Counter />
     <AppFooter />
   </ErrorBoundary>
 )
