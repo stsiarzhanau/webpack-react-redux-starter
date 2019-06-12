@@ -1,5 +1,3 @@
-import path from 'path'
-
 import { SRC } from '../paths'
 import { isProd } from '../envVariables'
 
@@ -11,10 +9,8 @@ export default [
       {
         loader: 'file-loader',
         options: {
-          name: path.join(
-            '[path]',
-            isProd ? '[name].[hash].[ext]' : '[name].[ext]',
-          ),
+          /* [path] refers to the path of the file relative to entry. */
+          name: isProd ? '[path][name].[hash].[ext]' : '[path][name].[ext]',
         },
       },
     ],
