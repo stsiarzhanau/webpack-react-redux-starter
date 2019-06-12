@@ -8,7 +8,9 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter as Router } from 'connected-react-router'
 
-import configureStore, { history } from 'redux_app/configureStore'
+// eslint-disable-next-line no-unused-vars
+import configureStore, { history, sagaMiddleware } from 'redux_app/configureStore'
+// import rootSaga from 'redux_app/sagas'
 import App from 'ui/App'
 
 const store = configureStore()
@@ -27,5 +29,7 @@ if (process.env.NODE_ENV !== 'production' && module.hot) {
     renderApp()
   })
 }
+
+// sagaMiddleware.run(rootSaga)
 
 renderApp()

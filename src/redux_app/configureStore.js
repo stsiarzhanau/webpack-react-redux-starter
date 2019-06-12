@@ -11,7 +11,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import createRootReducer from './modules'
 
 export const history = createBrowserHistory()
-const sagaMiddleware = createSagaMiddleware()
+export const sagaMiddleware = createSagaMiddleware()
 const rootReducer = createRootReducer(history)
 
 export default function configureStore(preloadedState) {
@@ -22,12 +22,16 @@ export default function configureStore(preloadedState) {
 
   const middlewareEnhancer = applyMiddleware(...middlewares)
   const enhancers = [middlewareEnhancer]
-  const composedEnhancers = composeWithDevTools(...enhancers)
+
+  /* https://github.com/zalmoxisus/redux-devtools-extension#13-use-redux-devtools-extension-package-from-npm */
+  const composeEnhancers = composeWithDevTools({
+    maxAge: 150,
+  })
 
   const store = createStore(
     rootReducer,
     preloadedState,
-    composedEnhancers,
+    composeEnhancers(...enhancers),
   )
 
   if (process.env.NODE_ENV !== 'production' && module.hot) {
