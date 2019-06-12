@@ -4,5 +4,5 @@ const ROOT = path.resolve(__dirname, '../../')
 const resolvePath = relativePath => path.resolve(ROOT, relativePath)
 
 export const SRC = resolvePath('src')
-export const DIST = resolvePath('dist')
+export const BUILD = resolvePath('build')
 export const NODE_MODULES = resolvePath('node_modules')

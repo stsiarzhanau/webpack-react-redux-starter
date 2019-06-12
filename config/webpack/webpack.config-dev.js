@@ -2,7 +2,7 @@ import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import SpriteLoaderPlugin from 'svg-sprite-loader/plugin'
 
-import { DIST, SRC } from './paths'
+import { BUILD, SRC } from './paths'
 import GLOBALS from './envVariables'
 import rules from './rules'
 
@@ -19,7 +19,7 @@ export default {
 
   output: {
     filename: '[name].js',
-    path: DIST,
+    path: BUILD,
     publicPath: '/',
   },
 

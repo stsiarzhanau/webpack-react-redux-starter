@@ -11,7 +11,7 @@ const bs = browserSync.create()
 
 bs.init({
   server: {
-    baseDir: ['dist'],
+    baseDir: ['build'],
 
     middleware: [
       compression(),

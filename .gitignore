@@ -19,5 +19,4 @@ coverage
 .DS_Store
 
 # project
-__trash__
-dist
+build

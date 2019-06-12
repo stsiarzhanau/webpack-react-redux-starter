@@ -9,7 +9,7 @@ import CompressionPlugin from 'compression-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import StyleLintPlugin from 'stylelint-webpack-plugin'
 
-import { DIST, SRC } from './paths'
+import { BUILD, SRC } from './paths'
 import GLOBALS from './envVariables'
 import rules from './rules'
 
@@ -25,7 +25,7 @@ export default {
 
   output: {
     filename: '[name].[chunkhash].js',
-    path: DIST,
+    path: BUILD,
     publicPath: '/',
   },
 

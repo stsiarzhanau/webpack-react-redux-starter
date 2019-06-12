@@ -1,7 +1,6 @@
 coverage
 node_modules
-__trash__
-dist
+build
 !.babelrc.js
 !.eslintrc.js
 !.stylelintrc.js
