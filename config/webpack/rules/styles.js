@@ -15,7 +15,6 @@ export default [
         loader: 'css-loader',
         options: {
           modules: true,
-          localIdentName: '[path][local]',
           // sourceMap: isDev,
           importLoaders: 1,
         },
