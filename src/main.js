@@ -1,6 +1,8 @@
 /* https://redux.js.org/recipes/configuring-your-store */
 /* https://github.com/supasate/connected-react-router#step-3 */
 
+/* https://github.com/gaearon/react-hot-loader#getting-started */
+import 'react-hot-loader'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'

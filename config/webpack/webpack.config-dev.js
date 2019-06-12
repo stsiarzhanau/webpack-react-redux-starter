@@ -28,6 +28,10 @@ export default {
   },
 
   resolve: {
+    alias: {
+      /* https://github.com/hot-loader/react-dom#webpack */
+      'react-dom': '@hot-loader/react-dom',
+    },
     modules: ['src', 'node_modules'],
     extensions: ['.js', '.json', '.jsx'],
   },
