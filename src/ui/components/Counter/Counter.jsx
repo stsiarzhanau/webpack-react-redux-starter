@@ -1,33 +1,27 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import s from './Counter.module.css'
 
 
-export default class Counter extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { counter: 0 }
+const Counter = () => {
+  const [count, setCount] = useState(0)
+
+  const tick = () => {
+    setCount(prevCount => prevCount + 1)
   }
 
-  componentDidMount() {
-    this.interval = setInterval(this.tick.bind(this), 1000)
-  }
+  useEffect(() => {
+    const timerId = setInterval(tick, 1000)
 
-  componentWillUnmount() {
-    clearInterval(this.interval)
-  }
+    return () => {
+      clearInterval(timerId)
+    }
+  }, [])
 
-  tick() {
-    const { counter } = this.state
-    this.setState({
-      counter: counter + 1,
-    })
-  }
 
-  render() {
-    const { counter } = this.state
-    return (
-      <h3 className={s.counter}>Counter: {counter}</h3>
-    )
-  }
+  return (
+    <h3 className={s.counter}>Counter: {count}</h3>
+  )
 }
+
+export default Counter
