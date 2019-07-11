@@ -4,6 +4,7 @@ import NavLinks from './index'
 
 // *** INSTRUCTIONS ***
 
+// npm run test:watch
 // Go to code below and replace current assertion with
 // expect(App).to.not.exist to fail test suite.
 // Save the file to see test framework reporter output in terminal.
