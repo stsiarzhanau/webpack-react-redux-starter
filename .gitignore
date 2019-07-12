@@ -1,22 +1,21 @@
-# NodeJS
+# ignore node_modules folder
 node_modules
-npm-debug.log
 
-# Yarn
-yarn-error.log
+# ignore all .log files in the root directory
+/*.log
 
 # coverage
 .nyc_output
 coverage
 
-# WebStorm
-.idea
+# JetBrains IDEs
+.idea/*
 
 # VSCode
-.vscode
+.vscode/*
 
 # macOS
 .DS_Store
 
-# project
-build
+# ignore build folder in the root directory
+/build
