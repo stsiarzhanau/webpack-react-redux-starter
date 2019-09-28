@@ -32,7 +32,7 @@ const rules = [
               // debug: true,
               // eslint-disable-next-line max-len
               // https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md#babelpreset-env
-              corejs: '3.1.4',
+              corejs: '3.2.1',
               useBuiltIns: 'usage',
               shippedProposals: true,
             }],
@@ -88,7 +88,7 @@ if (isProd) {
   })
 }
 
-/* https://github.com/zinserjan/mocha-webpack/blob/master/docs/guides/code-coverage.md */
+/* https://github.com/sysgears/mochapack/blob/master/docs/guides/code-coverage.md */
 if (isCover) {
   rules.unshift({
     test: /\.jsx?$/,

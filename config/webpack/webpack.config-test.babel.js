@@ -1,4 +1,4 @@
-/* https://github.com/zinserjan/mocha-webpack/blob/master/docs/installation/webpack-configuration.md */
+/* https://github.com/sysgears/mochapack/blob/master/docs/installation/webpack-configuration.md */
 
 import webpack from 'webpack'
 import nodeExternals from 'webpack-node-externals'
