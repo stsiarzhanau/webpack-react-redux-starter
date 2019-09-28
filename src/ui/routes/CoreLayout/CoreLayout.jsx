@@ -33,7 +33,7 @@ CoreLayout.propTypes = {
 
   }).isRequired,
   match: PropTypes.shape({
-
+    path: PropTypes.string,
   }).isRequired,
 }
 

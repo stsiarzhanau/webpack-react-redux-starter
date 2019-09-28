@@ -7,7 +7,7 @@ const Counter = () => {
   const [count, setCount] = useState(0)
 
   const tick = () => {
-    setCount(prevCount => prevCount + 1)
+    setCount((prevCount) => prevCount + 1)
   }
 
   useEffect(() => {

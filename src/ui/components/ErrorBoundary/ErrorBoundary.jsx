@@ -8,9 +8,13 @@ const propTypes = {
 }
 
 class ErrorBoundary extends Component {
-  state = {
-    error: null,
-    info: null,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      error: null,
+      info: null,
+    }
   }
 
   componentDidCatch(error, info) {
