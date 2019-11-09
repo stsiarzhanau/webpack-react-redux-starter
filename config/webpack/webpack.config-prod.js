@@ -1,5 +1,5 @@
 import webpack from 'webpack'
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+import TerserPlugin from 'terser-webpack-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import SpriteLoaderPlugin from 'svg-sprite-loader/plugin'
@@ -18,7 +18,8 @@ export default {
   context: SRC,
 
   entry: [
-    '@babel/polyfill',
+    'core-js/stable',
+    'regenerator-runtime/runtime',
     'whatwg-fetch',
     './main',
   ],
@@ -41,7 +42,7 @@ export default {
   optimization: {
     minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
+      new TerserPlugin({
         test: /\.jsx?$/i,
         parallel: 4,
       }),
@@ -82,6 +83,7 @@ export default {
     }),
     new CompressionPlugin(),
     new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
       openAnalyzer: false,
     }),
     new StyleLintPlugin({

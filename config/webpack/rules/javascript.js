@@ -1,20 +1,9 @@
 import { SRC } from '../paths'
 import { isProd, isCover, isTest } from '../envVariables'
 
-let targets = {
-  browsers: [
-    'last 2 versions',
-    'not dead',
-    'not Explorer 11',
-    'not ExplorerMobile 11',
-  ],
-}
 
-if (isTest) {
-  targets = {
-    node: 'current',
-  }
-}
+const targets = isTest ? { node: 'current' } : undefined
+
 
 const rules = [
   {
@@ -32,7 +21,7 @@ const rules = [
               // debug: true,
               // eslint-disable-next-line max-len
               // https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md#babelpreset-env
-              corejs: '3.2.1',
+              corejs: '3.4.0',
               useBuiltIns: 'usage',
               shippedProposals: true,
             }],

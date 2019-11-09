@@ -11,7 +11,8 @@ export default {
   context: SRC,
 
   entry: [
-    '@babel/polyfill',
+    'core-js/stable',
+    'regenerator-runtime/runtime',
     'whatwg-fetch',
     'webpack-hot-middleware/client',
     './main',

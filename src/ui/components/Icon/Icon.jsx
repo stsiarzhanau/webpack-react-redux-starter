@@ -1,6 +1,6 @@
 import React from 'react'
 import PT from 'prop-types'
-import cn from 'classnames'
+import clsx from 'clsx'
 
 import s from './Icon.module.css'
 
@@ -20,7 +20,7 @@ const defaultProps = {
 
 const Icon = ({ glyph, className }) => {
   const { viewBox, url } = glyph
-  const classes = cn(s.icon, className)
+  const classes = clsx(s.icon, className)
 
   return (
     <svg className={classes} viewBox={viewBox}>
