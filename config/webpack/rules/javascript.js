@@ -21,7 +21,7 @@ const rules = [
               // debug: true,
               // eslint-disable-next-line max-len
               // https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md#babelpreset-env
-              corejs: '3.4.0',
+              corejs: '3.6.4',
               useBuiltIns: 'usage',
               shippedProposals: true,
             }],
@@ -37,9 +37,7 @@ const rules = [
             // Stage 1
             '@babel/plugin-proposal-export-default-from',
             '@babel/plugin-proposal-logical-assignment-operators',
-            ['@babel/plugin-proposal-optional-chaining', { loose: false }],
             ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }],
-            ['@babel/plugin-proposal-nullish-coalescing-operator', { loose: false }],
             '@babel/plugin-proposal-do-expressions',
 
             // Stage 2
@@ -82,12 +80,13 @@ if (isCover) {
   rules.unshift({
     test: /\.jsx?$/,
     include: SRC,
-    enforce: 'post',
+    // enforce: 'post',
     use: {
       loader: 'istanbul-instrumenter-loader',
       options: { esModules: true },
     },
   })
 }
+
 
 export default rules
