@@ -47,6 +47,8 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-one-expression-per-line': 0,
     'react/prefer-stateless-function': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/state-in-constructor': 0,
 
     /* eslint-plugin-react-hooks */
     'react-hooks/rules-of-hooks': 2,
@@ -54,9 +56,13 @@ module.exports = {
 
     /* core */
     'arrow-body-style': 0,
+    'arrow-parens': [2, 'as-needed', { requireForBlockBody: true }],
+    camelcase: 0,
     'func-names': 0,
     'implicit-arrow-linebreak': 0,
     'max-len': [1, 120],
+    'no-confusing-arrow': 0,
+    'no-multiple-empty-lines': [2, { max: 2, maxEOF: 1 }],
     'no-param-reassign': 0,
     'no-unexpected-multiline': 2,
     'no-useless-escape': 0,

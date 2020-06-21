@@ -1,6 +1,5 @@
-coverage
-node_modules
-build
+/coverage/*
+/build/*
 !.babelrc.js
 !.eslintrc.js
 !.stylelintrc.js
