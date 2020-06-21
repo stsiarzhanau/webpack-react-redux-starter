@@ -10,6 +10,7 @@ module.exports = {
       corejs: '3.6.4',
       useBuiltIns: 'usage',
       shippedProposals: true,
+      bugfixes: true,
     }],
   ],
   plugins: [

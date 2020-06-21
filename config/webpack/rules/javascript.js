@@ -1,9 +1,7 @@
 import { SRC } from '../paths'
 import { isProd, isCover, isTest } from '../envVariables'
 
-
 const targets = isTest ? { node: 'current' } : undefined
-
 
 const rules = [
   {
@@ -21,9 +19,10 @@ const rules = [
               // debug: true,
               // eslint-disable-next-line max-len
               // https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md#babelpreset-env
-              corejs: '3.6.4',
+              corejs: '3.6.5',
               useBuiltIns: 'usage',
               shippedProposals: true,
+              bugfixes: true,
             }],
             '@babel/preset-react',
           ],
@@ -87,6 +86,5 @@ if (isCover) {
     },
   })
 }
-
 
 export default rules
