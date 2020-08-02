@@ -59,6 +59,7 @@ export default {
     runtimeChunk: true,
     splitChunks: {
       chunks: 'all',
+      enforceSizeThreshold: 50000, // will be set by default to 50k in webpack 5
     },
   },
 
@@ -68,7 +69,7 @@ export default {
       template: `${SRC}/index.html`,
       favicon: 'favicon.ico',
     }),
-    new SpriteLoaderPlugin(),
+    new SpriteLoaderPlugin({ plainSprite: true }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),

@@ -51,7 +51,7 @@ export default {
       template: `${SRC}/index.html`,
       favicon: 'favicon.ico',
     }),
-    new SpriteLoaderPlugin(),
+    new SpriteLoaderPlugin({ plainSprite: true }),
   ],
 
   devtool: 'eval-source-map',

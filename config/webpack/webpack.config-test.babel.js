@@ -35,7 +35,7 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin(GLOBALS),
-    new SpriteLoaderPlugin(),
+    new SpriteLoaderPlugin({ plainSprite: true }),
   ],
 
   devtool: 'inline-cheap-module-source-map',
