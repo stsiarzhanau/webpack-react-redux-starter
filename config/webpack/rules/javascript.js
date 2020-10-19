@@ -1,7 +1,9 @@
 import { SRC } from '../paths'
-import { isProd, isCover, isTest } from '../envVariables'
+import { isCover, isTest } from '../envVariables'
+
 
 const targets = isTest ? { node: 'current' } : undefined
+
 
 const rules = [
   {
@@ -58,21 +60,6 @@ const rules = [
   },
 ]
 
-if (isProd) {
-  rules.push({
-    test: /\.jsx?$/,
-    include: SRC,
-    enforce: 'pre',
-    use: [
-      {
-        loader: 'eslint-loader',
-        options: {
-          emitWarning: true,
-        },
-      },
-    ],
-  })
-}
 
 /* https://github.com/sysgears/mochapack/blob/master/docs/guides/code-coverage.md */
 if (isCover) {

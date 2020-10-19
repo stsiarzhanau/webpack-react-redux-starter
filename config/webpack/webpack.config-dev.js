@@ -33,6 +33,7 @@ export default {
       /* https://github.com/hot-loader/react-dom#webpack */
       'react-dom': '@hot-loader/react-dom',
     },
+
     modules: ['src', 'node_modules'],
     extensions: ['.js', '.json', '.jsx'],
   },
@@ -47,10 +48,12 @@ export default {
   plugins: [
     new webpack.DefinePlugin(GLOBALS),
     new webpack.HotModuleReplacementPlugin(),
+
     new HtmlWebpackPlugin({
       template: `${SRC}/index.html`,
       favicon: 'favicon.ico',
     }),
+
     new SpriteLoaderPlugin({ plainSprite: true }),
   ],
 

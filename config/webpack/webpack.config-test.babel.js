@@ -8,6 +8,7 @@ import { SRC } from './paths'
 import GLOBALS from './envVariables'
 import rules from './rules'
 
+
 module.exports = {
   mode: 'none',
   context: SRC,
